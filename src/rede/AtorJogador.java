@@ -41,7 +41,7 @@ public class AtorJogador {
         return"";
     }
     
-    public void iniciarNovaPartida(){
+    public void iniciarNovaRede(boolean comecoJogando){
         
     }
     
