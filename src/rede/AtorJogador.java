@@ -6,6 +6,7 @@
 package rede;
 
 import controladores.Controlador;
+import views.TelaPrincipal;
 
 /**
  *
@@ -16,11 +17,17 @@ public class AtorJogador {
     protected String nome;
     protected Controlador jogo;
     protected AtorNetGames atorNetGames;
+    protected TelaPrincipal telaPrincipal;
     
     public AtorJogador(){
+        this.telaPrincipal = new TelaPrincipal(this);
+        atorNetGames = new AtorNetGames(this);
         
     }
     
+    public TelaPrincipal getTelaPrincipal(){
+        return telaPrincipal;
+    }
     
     public int escolherTema(){
         return 0;
@@ -65,6 +72,10 @@ public class AtorJogador {
     
     public boolean avaliarInterrupcao(){
         return false;
+    }
+
+    void receberEstado(EstadoDoJogo estado) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
     
 }
