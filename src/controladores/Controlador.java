@@ -26,6 +26,11 @@ public class Controlador {
     
     
     public Controlador(){
+        this.bancoPerguntas = new BancoPerguntas(this);
+        bancoPerguntas.instanciarPerguntas();
+    }
+    
+    private void iniciar() {
         
     }
     
@@ -114,6 +119,11 @@ public class Controlador {
         return false;
     }
     
+    public static void main(String[] args) {
+        Controlador controlador = new Controlador();
+        controlador.iniciar();
+    }
+
     
     
 }
