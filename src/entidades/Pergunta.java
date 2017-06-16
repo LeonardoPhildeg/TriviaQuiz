@@ -11,109 +11,59 @@ package entidades;
  */
 public class Pergunta {
     
-    /*
-    RESPOSTAS PARA PERGUNTADOS ENTRETENIMENTO
+    protected Tema tema;
+    protected String enunciado;
+    protected String alternativa1;
+    protected String alternativa2;
+    protected String alternativa3;
+    protected String alternativa4;
+    protected int respostaCerta;
+    protected boolean sorteada;
 
-6- Leonardo DiCaprio ganhou o Oscar por qual de seus filmes?
-R: Ele nunca ganhou um Oscar
+    public Pergunta(Tema tema, String enunciado, String alternativa1, String alternativa2, String alternativa3, String alternativa4, int respostaCerta) {
+        this.tema = tema;
+        this.enunciado = enunciado;
+        this.alternativa1 = alternativa1;
+        this.alternativa2 = alternativa2;
+        this.alternativa3 = alternativa3;
+        this.alternativa4 = alternativa4;
+        this.respostaCerta = respostaCerta;
+        this.sorteada = false;
+    }
 
-8- Qual dos seguintes não é um X-men?
-R: Tocha Humana
+    public String getEnunciado() {
+        return enunciado;
+    }
 
-9- No filme “Aladdin”, qual era o nome de seu macaco de estimação?
-R: Abu
+    public Tema getTema() {
+        return tema;
+    }
 
-12- Qual é o nome da rua em Londres em que Os Beatles gravaram a maioria de seus álbuns?
-R: Abbey Road
+    public boolean isSorteada() {
+        return sorteada;
+    }
+    
+    public void setSorteada(boolean sorteada) {
+        this.sorteada = sorteada;
+    }
 
-14- Cazuza e Renato Russo morreram por causa de qual doença?
-R: AIDS
+    public int getRespostaCerta() {
+        return respostaCerta;
+    }
 
- 
-RESPOSTAS PARA PERGUNTADOS GEOGRAFIA
+    public String getAlternativa1() {
+        return alternativa1;
+    }
 
-2- Em qual oceano estão as ilhas de Galápagos?
-R: Pacífico
-3- Onde localiza-se o museu do MASP?
-R: São Paulo
+    public String getAlternativa2() {
+        return alternativa2;
+    }
 
-4- Que organização exerce a soberania na Antártica?
-R: Ninguém exerce
+    public String getAlternativa3() {
+        return alternativa3;
+    }
 
-7- Depois do monte Everest, qual a montanha mais alta do mundo?
-R: K2
-
-8- Qual o significado da sigla ONU?
-R: Organização das Nações Unidas
-
-9- Quando é o outono do hemisfério norte?
-R: De setembro a dezembro
-
-10- Que países fazem a maior fronteira do mundo?
-R: Estados Unidos e Canadá
-
-11- Qual a capital do Mato Grosso do Sul?
-R: Campo Grande
-
-14- Qual a maior fonte de energia do Brasil?
-R: Hidrelétrica
-
-15- Varginha (MG) é famosa por?
-R: Sendo a cidade do ET
-
- 
-
-RESPOSTAS PARA PERGUNTADOS ARTES
-2- Qual o nome da cadela de “Vidas Secas”, do escritor alagoano Graciliano Ramos?
-R: Baleia
-
-5- Quem escreveu Branca de Neve?
-R: Irmãos Grimm
-
-6- O que o soldadinho de chumbo perdeu?
-R: Uma perna
-
-9- A que escola literária pertencia Machado de Assis?
-R: Realismo
-
-13- O Realismo faz oposição a que estilo literário?
-R: Romantismo
-
- 
-
-RESPOSTAS PARA PERGUNTADOS ESPORTE
-1- Em qual destes esportes, ganha quem fizer a menor pontuação?
-R: Golfe
-
-2- Como é carinhosamente conhecido Gustavo Kuerten, famoso tenista brasileiro?
-R: Guga
-
-3- Quais são as 4 modalidades da natação?
-R: Borboleta, costas, peito e crawl
-
-4- Quantos jogadores tem em cada time em um jogo de handball?
-R: 7 jogadores
-
-5- Quantas bolas pretas existem na sinuca?
-R: Uma
-
-8- Quem conquistou o recorde mundial de 100 metros rasos?
-R: Usain Bolt
-
-10- Como era conhecido o ex-jogador do Botafogo, conhecido por seus dribles e suas pernas tortas?
-R: Garrincha
-
-11- Quem foi o jogador que foi expulso na final da copa do mundo de 2006 por ter dado uma cabeçada no adversário?
-R: Zidane
-
-13- Qual desses esporte não tem nas Olimpiadas?
-R: Skate
-
-14- Complete a fala popular: “Vai que é tua…”?
-R: Tafarel!
-
-15- Qual o segundo esporte mais popular no Brasil?
-R: Volei
-
-*/
+    public String getAlternativa4() {
+        return alternativa4;
+    }
 }

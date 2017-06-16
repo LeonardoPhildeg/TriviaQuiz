@@ -11,12 +11,12 @@ package entidades;
  */
 public enum Tema {
     
-    HISTÓRIA(1),
-    GEOGRAFIA(2),
-    ESPORTES(3),
-    CIENCIAS(4),
-    INGLES(5),
-    ENTRETENIMENTO(6);
+    HISTORIA(0),
+    GEOGRAFIA(1),
+    ESPORTES(2),
+    CIENCIAS(3),
+    INGLES(4),
+    ENTRETENIMENTO(5);
     
     protected Integer id;
     
