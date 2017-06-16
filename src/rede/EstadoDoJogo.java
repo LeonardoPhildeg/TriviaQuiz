@@ -4,6 +4,7 @@
  * and open the template in the editor.
  */
 package rede;
+import br.ufsc.inf.leobr.cliente.Jogada;
 
 import entidades.Jogador;
 
@@ -11,7 +12,7 @@ import entidades.Jogador;
  *
  * @author Leonardo
  */
-public class EstadoDoJogo {
+public class EstadoDoJogo implements Jogada {
     
     protected int numeroRodada;
     protected Jogador jogador1;
