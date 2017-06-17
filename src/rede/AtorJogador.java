@@ -71,6 +71,7 @@ public class AtorJogador {
             this.telaPrincipal.atualizarNomeJogador1(nomeOutroJogador, false);
             this.telaPrincipal.atualizarNomeJogador2(this.nome, true);
             telaPrincipal.desabilitaBotaoSortear();
+            telaPrincipal.desabilitaBotaoRenderSe();
         }
     }
     
