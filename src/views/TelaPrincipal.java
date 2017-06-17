@@ -5,8 +5,14 @@
  */
 package views;
 
+import br.ufsc.inf.leobr.cliente.exception.NaoConectadoException;
+import entidades.Jogador;
+
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 import rede.AtorJogador;
+import rede.EstadoDoJogo;
 
 /**
  *
@@ -34,43 +40,51 @@ public class TelaPrincipal extends javax.swing.JFrame {
 
         jMenuItem1 = new javax.swing.JMenuItem();
         jPanel1 = new javax.swing.JPanel();
-        jLabel1 = new javax.swing.JLabel();
+        jLabelJogador1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
-        jLabel4 = new javax.swing.JLabel();
+        jLabelJogador2 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
         jButtonSortearPergunta = new javax.swing.JButton();
-        jButton1 = new javax.swing.JButton();
+        jButtonRenderSe = new javax.swing.JButton();
         jLabelPontosGanharJog1 = new javax.swing.JLabel();
         jLabelPontosGanhosJog1 = new javax.swing.JLabel();
         jLabelPontosGanharJog2 = new javax.swing.JLabel();
         jLabelPontosGanhosJog2 = new javax.swing.JLabel();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenuPartida = new javax.swing.JMenu();
-        jMenuItemConectar = new javax.swing.JMenuItem();
-        jMenuItemDesconectar = new javax.swing.JMenuItem();
         jMenuItemIniciarPartida = new javax.swing.JMenuItem();
 
         jMenuItem1.setText("jMenuItem1");
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jLabel1.setText("Jogador1");
+        jLabelJogador1.setText("Jogador1");
 
         jLabel2.setText("Pontos a Ganhar:");
 
         jLabel3.setText("Pontos Ganhos:");
 
-        jLabel4.setText("Jogador2");
+        jLabelJogador2.setText("Jogador2");
 
         jLabel5.setText("Pontos a Ganhar:");
 
         jLabel6.setText("Pontos Ganhos:");
 
         jButtonSortearPergunta.setText("SORTEAR PERGUNTA");
+        jButtonSortearPergunta.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonSortearPerguntaActionPerformed(evt);
+            }
+        });
 
-        jButton1.setText("Render-se");
+        jButtonRenderSe.setText("Render-se");
+        jButtonRenderSe.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonRenderSeActionPerformed(evt);
+            }
+        });
 
         jLabelPontosGanharJog1.setText("jLabel7");
 
@@ -97,34 +111,34 @@ public class TelaPrincipal extends javax.swing.JFrame {
                             .addComponent(jLabel3))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabelPontosGanhosJog1)
-                            .addComponent(jLabelPontosGanharJog1)))
+                            .addComponent(jLabelPontosGanharJog1)
+                            .addComponent(jLabelPontosGanhosJog1)))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addContainerGap()
-                        .addComponent(jButton1))
+                        .addComponent(jButtonRenderSe))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(10, 10, 10)
-                        .addComponent(jLabel1)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 83, Short.MAX_VALUE)
+                        .addComponent(jLabelJogador1)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 129, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel4)
+                    .addComponent(jLabelJogador2)
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel5)
-                            .addComponent(jLabel6))
+                            .addComponent(jLabel6)
+                            .addComponent(jLabel5))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabelPontosGanhosJog2)
                             .addComponent(jLabelPontosGanharJog2))))
-                .addGap(61, 61, 61))
+                .addGap(92, 92, 92))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(20, 20, 20)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel1)
-                    .addComponent(jLabel4))
+                    .addComponent(jLabelJogador1)
+                    .addComponent(jLabelJogador2))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel2)
@@ -139,20 +153,19 @@ public class TelaPrincipal extends javax.swing.JFrame {
                     .addComponent(jLabelPontosGanhosJog2))
                 .addGap(58, 58, 58)
                 .addComponent(jButtonSortearPergunta, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 74, Short.MAX_VALUE)
-                .addComponent(jButton1)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 93, Short.MAX_VALUE)
+                .addComponent(jButtonRenderSe)
                 .addContainerGap())
         );
 
         jMenuPartida.setText("Partida");
 
-        jMenuItemConectar.setText("Conectar");
-        jMenuPartida.add(jMenuItemConectar);
-
-        jMenuItemDesconectar.setText("Desconectar");
-        jMenuPartida.add(jMenuItemDesconectar);
-
         jMenuItemIniciarPartida.setText("Iniciar Partida");
+        jMenuItemIniciarPartida.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItemIniciarPartidaActionPerformed(evt);
+            }
+        });
         jMenuPartida.add(jMenuItemIniciarPartida);
 
         jMenuBar1.add(jMenuPartida);
@@ -177,25 +190,47 @@ public class TelaPrincipal extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private void jButtonSortearPerguntaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonSortearPerguntaActionPerformed
+    	desabilitaBotaoRenderSe();
+    	atorJogador.sortearPergunta();
+    }
+
+    private void jButtonRenderSeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonRenderSeActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButtonRenderSeActionPerformed
+
+    private void jMenuItemIniciarPartidaActionPerformed(java.awt.event.ActionEvent evt) {                                                        
+    	atorJogador.iniciarPartidaPedido();
+    }
+        
+    private void jMenuItemDesconectarActionPerformed(java.awt.event.ActionEvent evt) {                                                     
+    	atorJogador.desconectar();
+    } 
+    
+    
+
+  
+
+  
+
+
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
+    private javax.swing.JButton jButtonRenderSe;
     private javax.swing.JButton jButtonSortearPergunta;
-    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabelJogador1;
+    private javax.swing.JLabel jLabelJogador2;
     private javax.swing.JLabel jLabelPontosGanharJog1;
     private javax.swing.JLabel jLabelPontosGanharJog2;
     private javax.swing.JLabel jLabelPontosGanhosJog1;
     private javax.swing.JLabel jLabelPontosGanhosJog2;
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JMenuItem jMenuItem1;
-    private javax.swing.JMenuItem jMenuItemConectar;
-    private javax.swing.JMenuItem jMenuItemDesconectar;
     private javax.swing.JMenuItem jMenuItemIniciarPartida;
     private javax.swing.JMenu jMenuPartida;
     private javax.swing.JPanel jPanel1;
@@ -205,10 +240,52 @@ public class TelaPrincipal extends javax.swing.JFrame {
         JOptionPane.showMessageDialog(this, msg);
     }
 
+	public String showNameQuestion() {
+		return JOptionPane.showInputDialog(this, "Escolha seu nome:");
+	}
 
+    public void atualizarNomeJogador1(String str, boolean eu) {
+	jLabelJogador1.setText(str+(eu ? " (Eu)" : ""));
+    }
+	
+    public void atualizarNomeJogador2(String str, boolean eu) {
+        jLabelJogador2.setText(str+(eu ? " (Eu)" : ""));
+    }
 
+    public void exibeTela() {
+        setVisible(true);
+    }
 
-
-
+	public void desabilitarIniciarPartida() {
+		jMenuItemIniciarPartida.setEnabled(false);
+	}
+	
+	public void atualizarInterface(EstadoDoJogo estado){
+		Jogador jogador1 = estado.getJogador1();
+		Jogador jogador2 = estado.getJogador2();
+		
+		jLabelPontosGanharJog1.setText(String.valueOf(jogador1.getPontosAGanhar()));
+		jLabelPontosGanharJog2.setText(String.valueOf(jogador2.getPontosAGanhar()));
+		
+		jLabelPontosGanhosJog1.setText(String.valueOf(jogador1.getPontosAGanhos()));
+		jLabelPontosGanhosJog2.setText(String.valueOf(jogador2.getPontosAGanhos()));
+	}
+	
+	public void habilitaBotaoSortear(){
+		jButtonSortearPergunta.setEnabled(true);
+	}
+	
+	public void desabilitaBotaoSortear(){
+		jButtonSortearPergunta.setEnabled(false);
+	}
+	
+	public void habilitaBotaoRenderSe(){
+		jButtonRenderSe.setEnabled(true);
+	}
+	
+	public void desabilitaBotaoRenderSe(){
+		jButtonRenderSe.setEnabled(false);
+	}
+		
 
 }

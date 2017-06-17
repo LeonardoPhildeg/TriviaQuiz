@@ -19,13 +19,18 @@ public class EstadoDoJogo implements Jogada {
     protected Jogador jogador2;
            
     public EstadoDoJogo(){
-        
+        super();
+
     }
     
     
     
-    public void instanciarJogadores(){
-        
+    public void criarJogador(String nome, boolean jogadorLocal){
+        if (jogador1 == null) {
+            jogador1 = new Jogador(nome, jogadorLocal);
+        } else if (jogador2 == null) {
+            jogador2 = new Jogador(nome, jogadorLocal);
+        }
     }
     
     public void atualizaEstadoJogo(Jogador jogadorDaVez){
@@ -36,21 +41,19 @@ public class EstadoDoJogo implements Jogada {
         return false;
     }
     
+    public Jogador getJogador1(){
+        return jogador1;
+    }
+    
     public Jogador getJogador2(){
-        return null;
+        return jogador2;
     }
     
-    public void setJogador1(Jogador jogador1){
-        
-    }
     
-    public void setJogador2(Jogador jogador2){
-        
-    }
     
-    public boolean isJogadorDaVez(){
-        return false;
-    }
+    
+    
+
     
     
     

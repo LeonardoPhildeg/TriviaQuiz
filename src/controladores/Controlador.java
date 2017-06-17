@@ -7,7 +7,9 @@ package controladores;
 
 import entidades.Jogador;
 import entidades.Pergunta;
+
 import rede.AtorJogador;
+
 import rede.EstadoDoJogo;
 
 /**
@@ -16,6 +18,8 @@ import rede.EstadoDoJogo;
  */
 public class Controlador {
     
+	protected Jogador jogador1;
+	protected Jogador jogador2;
     protected AtorJogador atorJogador;
     protected boolean jogadorDaVezVenceu;
     protected boolean jogadorDaVezRendeuSe;
@@ -25,9 +29,10 @@ public class Controlador {
     protected boolean partidaEmAndamento;
     
     
-    public Controlador(){
-        this.bancoPerguntas = new BancoPerguntas(this);
-        bancoPerguntas.instanciarPerguntas();
+    public Controlador(AtorJogador atorJogador){
+        this.atorJogador = atorJogador;
+       // this.bancoPerguntas = new BancoPerguntas(this);
+       // bancoPerguntas.instanciarPerguntas();
     }
     
     private void iniciar() {
@@ -79,17 +84,6 @@ public class Controlador {
         
     }
     
-    public void setJogador1(Jogador jogador){
-        
-    }
-    
-    public void setJogador2(Jogador jogador){
-        
-    }
-    
-    public Jogador getJogador2(){
-        return null;
-    }
     
     public void setPartidaEmAndamento(boolean partidaEmAndamento){
         
@@ -111,19 +105,49 @@ public class Controlador {
         
     }
     
-    public void instanciarJogadores(){
-        
-    }
     
     public boolean verificarPartidaEmAndamento(){
         return false;
     }
     
-    public static void main(String[] args) {
-        Controlador controlador = new Controlador();
-        controlador.iniciar();
-    }
+//    public static void main(String[] args) {
+//        Controlador controlador = new Controlador()
+//        controlador.iniciar();
+//        
+//    }
+    
+	public Jogador getJogador1() {
+		return jogador1;
+	}
 
+	public void setJogador1(Jogador jogador1) {
+		this.jogador1 = jogador1;
+	}
+
+	public Jogador getJogador2() {
+		return jogador2;
+	}
+
+	public void setJogador2(Jogador jogador2) {
+		this.jogador2 = jogador2;
+	}
+    
+//	 public void criarJogador(String nome, boolean jogadorLocal){
+//		 estadoJogo.criarJogador(nome, jogadorLocal);
+//	 }
+	
+	public void criarJogador(String nome, boolean jogadorLocal) {
+		if (jogador1 == null) {
+			jogador1 = new Jogador(nome, jogadorLocal);
+		} else if (jogador2 == null) {
+			jogador2 = new Jogador(nome, jogadorLocal);
+			}
+		}
+	
+
+	
+    
+    
     
     
 }

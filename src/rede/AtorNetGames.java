@@ -5,13 +5,18 @@ import br.ufsc.inf.leobr.cliente.Proxy;
 import br.ufsc.inf.leobr.cliente.exception.NaoConectadoException;
 import br.ufsc.inf.leobr.cliente.exception.NaoJogandoException;
 
+
 /**
  *
  * @author Leonardo
  */
 public class AtorNetGames implements OuvidorProxy{
     
-    protected AtorJogador atorJogador;
+    /**
+	 * 
+	 */
+	
+	protected AtorJogador atorJogador;
     protected Proxy proxy;
     protected boolean minhaVez = false;
     
@@ -21,33 +26,42 @@ public class AtorNetGames implements OuvidorProxy{
         super();
         this.atorJogador = atorJogador;
         proxy = Proxy.getInstance();
-        //Essa merda de NetBeans pediu pra fazer esse Cast. Nos outros trabalhos n√£o tinha
         proxy.addOuvinte(this);
     }
 
     
-    public void conectar(String idJogador, String servidor) throws Exception {
-        proxy.conectar(servidor, idJogador);
+    public void conectar(String idJogador, String servidor)  {
+        try{
+    	proxy.conectar(servidor, idJogador);
+    		atorJogador.getTelaPrincipal().showDialog("Conectado");
+        }catch (Exception e) {
+			atorJogador.getTelaPrincipal().showDialog(e.getMessage());
+		}
     }
     
-    public void desconectar() throws NaoConectadoException {
-        proxy.desconectar();
+    public void desconectar()  {
+        try {
+			proxy.desconectar();
+		} catch (NaoConectadoException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
     }
     
-    public void iniciarPartida() throws NaoConectadoException{
-        proxy.iniciarPartida(2);
+    public void iniciarPartidaRede(){
+        try{
+            proxy.iniciarPartida(2);
+        }catch(NaoConectadoException e){
+            atorJogador.getTelaPrincipal().showDialog(e.getMessage());
+            e.printStackTrace();
+        }
     }    
         
         
     @Override
     public void iniciarNovaPartida(Integer posicao) {
-        if(posicao ==1){
-            minhaVez = true;
-        }
-        else if(posicao == 2){
-            minhaVez = false;
-        }
-        atorJogador.iniciarNovaRede(minhaVez);
+    	minhaVez = posicao == 1 ? true : false;
+		atorJogador.iniciarPartidaResposta(minhaVez);
     }
     
 
@@ -81,12 +95,22 @@ public class AtorNetGames implements OuvidorProxy{
 
     @Override
     public void tratarPartidaNaoIniciada(String message) {
-        atorJogador.getTelaPrincipal().showDialog("N√£o foi poss√≠vel iniciar a partida");
+        atorJogador.getTelaPrincipal().showDialog("N„o foi possÌvel iniciar a partida");
     }
     
     public boolean ehMinhaVez(){
         return minhaVez;
     }
+    
+    public String obterNomeAdversario() {
+        String nome = "";
+        if (minhaVez) {
+            nome = proxy.obterNomeAdversario(2);
+        }else {
+            nome = proxy.obterNomeAdversario(1);
+        }
+        return nome;
+	}
     
     
     @Override

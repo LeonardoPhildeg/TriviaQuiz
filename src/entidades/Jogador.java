@@ -18,11 +18,13 @@ public class Jogador {
     protected String [] temasGanhos;
     protected String [] temasAGanhar;
     protected int pontosGanhos;
-    protected int pontosAGnhar;
+    protected int pontosAGanhar;
+    protected boolean jogadorLocal;
     
     
-    public Jogador(){
-        
+    public Jogador(String nome, boolean jogadorLocal){
+        this.nome = nome;
+        this.jogadorLocal = jogadorLocal;
     }
     
     
@@ -41,4 +43,21 @@ public class Jogador {
     public boolean isJogadorDaVez(){
         return false;
     }
+    
+    public int getPontosAGanhar(){
+    	return this.pontosAGanhar;
+    }
+    
+    public void setPontosAGanhar(int pontosAGanhar){
+    	this.pontosAGanhar = pontosAGanhar;
+    }
+    
+    public int getPontosAGanhos(){
+    	return this.pontosGanhos;
+    }
+    
+    public void setPontosGanhos(int pontosGanhos){
+    	this.pontosGanhos = pontosGanhos;
+    }
+    
 }

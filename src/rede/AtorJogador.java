@@ -1,10 +1,9 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package rede;
 
+//import br.ufsc.inf.leobr.cliente.exception.ArquivoMultiplayerException;
+//import br.ufsc.inf.leobr.cliente.exception.JahConectadoException;
+//import br.ufsc.inf.leobr.cliente.exception.NaoConectadoException;
+//import br.ufsc.inf.leobr.cliente.exception.NaoPossivelConectarException;
 import controladores.Controlador;
 import views.TelaPrincipal;
 
@@ -21,9 +20,19 @@ public class AtorJogador {
     
     public AtorJogador(){
         this.telaPrincipal = new TelaPrincipal(this);
+        this.telaPrincipal.exibeTela();
+        this.showNameQuestion();
         atorNetGames = new AtorNetGames(this);
         
     }
+    
+	private void showNameQuestion() {
+		this.nome = this.telaPrincipal.showNameQuestion();
+		if (this.nome.isEmpty()) {
+			this.nome = "AnÙnimo";
+		}
+	}
+    
     
     public TelaPrincipal getTelaPrincipal(){
         return telaPrincipal;
@@ -41,9 +50,41 @@ public class AtorJogador {
         return"";
     }
     
-    public void iniciarNovaRede(boolean comecoJogando){
+    public void iniciarPartidaResposta(boolean comecoJogando){
+    	telaPrincipal.desabilitarIniciarPartida();
+    	String nomeOutroJogador = atorNetGames.obterNomeAdversario();
+        jogo = new Controlador(this);
         
+        System.out.println("chegou aqui");
+        if(comecoJogando){
+            jogo.criarJogador(this.nome, true);
+            jogo.criarJogador(nomeOutroJogador, false);
+            this.telaPrincipal.showDialog("Jogo iniciado!\nVocÍ comeÁa jogando!");
+            this.telaPrincipal.atualizarNomeJogador1(this.nome, true);
+            this.telaPrincipal.atualizarNomeJogador2(nomeOutroJogador, false);
+            telaPrincipal.habilitaBotaoSortear();
+        
+        }else{
+            jogo.criarJogador(nomeOutroJogador, false);
+            jogo.criarJogador(this.nome, true);
+            this.telaPrincipal.showDialog("Jogo iniciado!\nAguarde a jogada de seu advers·rio.");
+            this.telaPrincipal.atualizarNomeJogador1(nomeOutroJogador, false);
+            this.telaPrincipal.atualizarNomeJogador2(this.nome, true);
+            telaPrincipal.desabilitaBotaoSortear();
+        }
     }
+    
+    public void sortearPergunta(){
+    	if(atorNetGames.ehMinhaVez()){
+    		System.out.println("Oi LINDO!");
+    		
+    	}else{
+    		telaPrincipal.showDialog("N„o È a sua vez!");
+    	}
+    }
+        
+        
+        
     
     public void receberJogada(EstadoDoJogo estado){
         
@@ -53,22 +94,20 @@ public class AtorJogador {
         
     }
     
-    public int conectar(){
-        return 0;
+	public void conectar()  {
+		atorNetGames.conectar(nome, "localhost");
+	}
+    
+    public void iniciarPartidaPedido() {
+        atorNetGames.iniciarPartidaRede();
     }
     
-    public String obterDadosConexao(){
-        return "";
+    
+    
+    public void desconectar(){
+        atorNetGames.desconectar();
     }
     
-    public int desconectar(){
-        return 0;
-    }
-    
-    public int iniciarPartida(){
-        //√â NECESS√ÅRIO??????
-        return 0;
-    }
     
     public boolean avaliarInterrupcao(){
         return false;
@@ -78,4 +117,5 @@ public class AtorJogador {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
     
+
 }
