@@ -63,6 +63,7 @@ public class AtorJogador {
             this.telaPrincipal.atualizarNomeJogador1(this.nome, true);
             this.telaPrincipal.atualizarNomeJogador2(nomeOutroJogador, false);
             telaPrincipal.habilitaBotaoSortear();
+            telaPrincipal.habilitaBotaoRenderSe();
         
         }else{
             jogo.criarJogador(nomeOutroJogador, false);
