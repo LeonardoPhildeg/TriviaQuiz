@@ -5,6 +5,8 @@
  */
 package entidades;
 
+import controladores.Mesa;
+
 /**
  *
  * @author Leonardo
@@ -13,20 +15,23 @@ public class Jogador {
     
     protected String nome;
     protected int idJogador;
-    protected boolean vez;
-    protected int acertosRodada;
     protected String [] temasGanhos;
     protected String [] temasAGanhar;
-    protected int pontosGanhos;
-    protected int pontosAGanhar;
+    //protected int pontosGanhos;
+    //protected int pontosAGanhar;
     protected boolean jogadorLocal;
+    protected Mesa mesa;
     
     
     public Jogador(String nome, boolean jogadorLocal){
-        this.nome = nome;
+        mesa = new Mesa();
+    	this.nome = nome;
         this.jogadorLocal = jogadorLocal;
     }
     
+	public boolean isJogadorLocal() {
+		return jogadorLocal;
+	}
     
     public boolean isVencedor(){
         return false;
@@ -43,21 +48,32 @@ public class Jogador {
     public boolean isJogadorDaVez(){
         return false;
     }
+
     
-    public int getPontosAGanhar(){
-    	return this.pontosAGanhar;
+//    public int getPontosAGanhar(){
+//    	return this.pontosAGanhar;
+//    }
+//    
+//    public void setPontosAGanhar(int pontosAGanhar){
+//    	this.pontosAGanhar = pontosAGanhar;
+//    }
+//    
+//    public int getPontosAGanhos(){
+//    	return this.pontosGanhos;
+//    }
+//    
+//    public void setPontosGanhos(int pontosGanhos){
+//    	this.pontosGanhos = pontosGanhos;
+//    }
+    
+    public Mesa getMesa() {
+    	return mesa;
     }
     
-    public void setPontosAGanhar(int pontosAGanhar){
-    	this.pontosAGanhar = pontosAGanhar;
+    public void setMesa(Mesa mesa) {
+    	this.mesa = mesa;
     }
     
-    public int getPontosAGanhos(){
-    	return this.pontosGanhos;
-    }
     
-    public void setPontosGanhos(int pontosGanhos){
-    	this.pontosGanhos = pontosGanhos;
-    }
     
 }

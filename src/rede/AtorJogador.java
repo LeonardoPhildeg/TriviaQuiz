@@ -74,6 +74,7 @@ public class AtorJogador {
             telaPrincipal.desabilitaBotaoSortear();
             telaPrincipal.desabilitaBotaoRenderSe();
         }
+        this.telaPrincipal.atualizarInterface(jogo.getEstado());
     }
     
     public void sortearPergunta(){
@@ -86,15 +87,39 @@ public class AtorJogador {
     }
         
         
-        
-    
-    public void receberJogada(EstadoDoJogo estado){
-        
+      public void renderSe(){
+        if(atorNetGames.ehMinhaVez()){
+        	jogo.renderSe();
+        	this.enviarEstado();
+        	telaPrincipal.atualizarInterface(jogo.getEstado());
+        	this.telaPrincipal.showDialog("Você se rendeu.\nO jogo acabou.");
+        	telaPrincipal.desabilitaBotaoRenderSe();
+        	telaPrincipal.habilitarIniciarPartida();
+        }
+        else{
+        	telaPrincipal.showDialog("Não é a sua vez!");
+        }
     }
     
-    public void renderSe(){
-        
-    }
+	public void avisarRendeuSe() {
+		telaPrincipal.desabilitaBotaoSortear();
+		telaPrincipal.desabilitaBotaoRenderSe();
+		this.telaPrincipal.showDialog("O outro jogador se rendeu.\nParabéns! Você é o vencedor! ;)\nO jogo acabou.");
+	}
+	
+	public void avisarVencedor() {
+		telaPrincipal.desabilitaBotaoSortear();
+		telaPrincipal.desabilitaBotaoRenderSe();
+		telaPrincipal.habilitarIniciarPartida();
+		this.telaPrincipal.showDialog("Parabéns! Você é o vencedor! ;)\nO jogo acabou.");
+	}
+	
+	public void avisarPerdedor() {
+		telaPrincipal.desabilitaBotaoSortear();
+		telaPrincipal.desabilitaBotaoRenderSe();
+		this.telaPrincipal.showDialog("Você perdeu :(\nO jogo acabou.");
+	}
+    
     
 	public void conectar()  {
 		atorNetGames.conectar(nome, "localhost");
@@ -115,8 +140,21 @@ public class AtorJogador {
         return false;
     }
 
-    void receberEstado(EstadoDoJogo estado) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public void enviarEstado(){
+    	telaPrincipal.desabilitaBotaoSortear();
+    	atorNetGames.enviarEstado(jogo.getEstado());
+    }
+    
+    public void receberEstado(EstadoDoJogo estado) {
+		telaPrincipal.atualizarInterface(estado);
+		if (!jogo.setEstado(estado)) {
+			telaPrincipal.desabilitaBotaoSortear();
+			telaPrincipal.desabilitaBotaoRenderSe();
+			telaPrincipal.habilitarIniciarPartida();
+		} else {
+			telaPrincipal.habilitaBotaoSortear();
+			telaPrincipal.habilitaBotaoRenderSe();
+		}
     }
     
 

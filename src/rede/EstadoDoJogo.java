@@ -5,7 +5,7 @@
  */
 package rede;
 import br.ufsc.inf.leobr.cliente.Jogada;
-
+import controladores.Mesa;
 import entidades.Jogador;
 
 /**
@@ -14,48 +14,115 @@ import entidades.Jogador;
  */
 public class EstadoDoJogo implements Jogada {
     
-    protected int numeroRodada;
-    protected Jogador jogador1;
-    protected Jogador jogador2;
+    
+	protected Mesa mesa1;
+	protected Mesa mesa2;
+	protected int numeroRodada;
+	protected boolean rendeuSe;
+	protected boolean vencedor;
+
            
-    public EstadoDoJogo(){
+    public EstadoDoJogo(Mesa mesa1, Mesa mesa2, boolean rendeuSe, boolean vencedor){
         super();
+        this.mesa1 = mesa1;
+        this.mesa2 = mesa2;
+        this.rendeuSe = rendeuSe;
+        this.vencedor = vencedor;
 
     }
     
     
-    
-    public void criarJogador(String nome, boolean jogadorLocal){
-        if (jogador1 == null) {
-            jogador1 = new Jogador(nome, jogadorLocal);
-        } else if (jogador2 == null) {
-            jogador2 = new Jogador(nome, jogadorLocal);
-        }
+    public Mesa getMesa1() {
+    	return mesa1;
     }
     
-    public void atualizaEstadoJogo(Jogador jogadorDaVez){
-        
+    public void setMesa1(Mesa mesa1) {
+    	this.mesa1 = mesa1;
     }
     
-    public boolean setJogadorDaVez(boolean jogadorDaVez){
-        return false;
+    public Mesa getMesa2() {
+    	return mesa2;
     }
     
-    public Jogador getJogador1(){
-        return jogador1;
+    public void setMesa2(Mesa mesa2) {
+    	this.mesa2 = mesa2;
     }
     
-    public Jogador getJogador2(){
-        return jogador2;
+    public boolean isRendeuSe() {
+    	return rendeuSe;
     }
     
     
+    public void setRendeuSe(boolean rendeuSe) {
+    	this.rendeuSe = rendeuSe;
+    }
+    
+    
+    public boolean isVencedor() {
+    	return vencedor;
+    }
+    
+    
+    public void setVencedor(boolean vencedor) {
+    	this.vencedor = vencedor;
     
     
     
+    
+    
+    
+	}
 
-    
-    
+
+	public void atualizaEstadoJogo(Jogador jogadorDaVez){
+    	
+    }
     
     
 }
+    
+    
+    
+    
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+
+    
+
+    
+    
+    
+    
+    
+
+    
+    
+    
+    
+

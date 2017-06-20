@@ -7,9 +7,7 @@ package controladores;
 
 import entidades.Jogador;
 import entidades.Pergunta;
-
 import rede.AtorJogador;
-
 import rede.EstadoDoJogo;
 
 /**
@@ -35,10 +33,24 @@ public class Controlador {
        // bancoPerguntas.instanciarPerguntas();
     }
     
-    private void iniciar() {
-        
+
+    public void renderSe(){
+        this.jogadorDaVezRendeuSe = true;
     }
     
+    //Verificar a lógica desse método, está com base no método do tribal wars
+    public void verificarVencedor(){
+    	Jogador jogadorLocal = this.getJogadorLocal();
+    	if(jogadorLocal.getMesa().pontosAGanhar == 0){
+    		this.atorJogador.avisarVencedor();
+    		this.jogadorDaVezVenceu = true;
+    	}	
+    }		
+//    	if(jogadorRemoto.getVila().getPontosDeVida() <= 0){
+//    		this.atorJogador.avisarVencedor();
+//   			this.jogadorDaVezEhVencedor = true;
+    		
+ 
     
     public Pergunta sortearPergunta(){
         return null;
@@ -64,9 +76,6 @@ public class Controlador {
         
     }
     
-    public void verificarVencedor(){
-        
-    }
     
     public void informarVencedor(Jogador jogadorDaVez){
         
@@ -89,9 +98,7 @@ public class Controlador {
         
     }
     
-    public void renderSe(){
-        
-    }
+
     
     public boolean informarConectado(){
         return false;
@@ -132,9 +139,6 @@ public class Controlador {
 		this.jogador2 = jogador2;
 	}
     
-//	 public void criarJogador(String nome, boolean jogadorLocal){
-//		 estadoJogo.criarJogador(nome, jogadorLocal);
-//	 }
 	
 	public void criarJogador(String nome, boolean jogadorLocal) {
 		if (jogador1 == null) {
@@ -142,7 +146,41 @@ public class Controlador {
 		} else if (jogador2 == null) {
 			jogador2 = new Jogador(nome, jogadorLocal);
 			}
+	}
+	
+	public Jogador getJogadorLocal(){
+		return jogador1.isJogadorLocal() ? jogador1 : jogador2;
+	}
+	
+	public Jogador getJogadorRemoto(){
+		return jogador1.isJogadorLocal() ? jogador2 : jogador1;
+	}
+	
+	
+	
+	//get e set EstadoDoJogo
+	public EstadoDoJogo getEstado(){
+		EstadoDoJogo estado = new EstadoDoJogo(jogador1.getMesa(), jogador2.getMesa(), jogadorDaVezRendeuSe, jogadorDaVezVenceu);
+		return estado;
+	}
+	
+	public boolean setEstado(EstadoDoJogo estado){
+		jogador1.setMesa(estado.getMesa1());
+		jogador2.setMesa(estado.getMesa2());
+				
+		if(estado.isVencedor()){
+			atorJogador.avisarPerdedor();
+			return false;
 		}
+		
+		if(estado.isRendeuSe()){
+			atorJogador.avisarRendeuSe();
+			return false;
+		}
+
+		return true;
+	}
+	
 	
 
 	

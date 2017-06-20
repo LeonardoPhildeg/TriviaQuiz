@@ -6,6 +6,7 @@
 package views;
 
 import br.ufsc.inf.leobr.cliente.exception.NaoConectadoException;
+import controladores.Mesa;
 import entidades.Jogador;
 
 import java.util.logging.Level;
@@ -196,8 +197,11 @@ public class TelaPrincipal extends javax.swing.JFrame {
     }
 
     private void jButtonRenderSeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonRenderSeActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButtonRenderSeActionPerformed
+		int result = JOptionPane.showConfirmDialog(this, "Você tem certeza de que deseja se render?", "Fechar jogo", JOptionPane.YES_NO_OPTION);
+		if (result == JOptionPane.YES_OPTION) {
+			atorJogador.renderSe();
+		}
+    }
 
     private void jMenuItemIniciarPartidaActionPerformed(java.awt.event.ActionEvent evt) {                                                        
     	atorJogador.iniciarPartidaPedido();
@@ -260,15 +264,21 @@ public class TelaPrincipal extends javax.swing.JFrame {
 		jMenuItemIniciarPartida.setEnabled(false);
 	}
 	
+	public void habilitarIniciarPartida(){
+		jMenuItemIniciarPartida.setEnabled(true);
+	}
+	
 	public void atualizarInterface(EstadoDoJogo estado){
-		Jogador jogador1 = estado.getJogador1();
-		Jogador jogador2 = estado.getJogador2();
+		Mesa mesa1 = estado.getMesa1();
+		Mesa mesa2 = estado.getMesa2();
 		
-		jLabelPontosGanharJog1.setText(String.valueOf(jogador1.getPontosAGanhar()));
-		jLabelPontosGanharJog2.setText(String.valueOf(jogador2.getPontosAGanhar()));
+		jLabelPontosGanharJog1.setText(String.valueOf(mesa1.getPontosAGanhar()));
+		jLabelPontosGanharJog2.setText(String.valueOf(mesa2.getPontosAGanhar()));
 		
-		jLabelPontosGanhosJog1.setText(String.valueOf(jogador1.getPontosAGanhos()));
-		jLabelPontosGanhosJog2.setText(String.valueOf(jogador2.getPontosAGanhos()));
+		jLabelPontosGanhosJog1.setText(String.valueOf(mesa1.getPontosGanhos()));
+		jLabelPontosGanhosJog2.setText(String.valueOf(mesa2.getPontosGanhos()));
+
+		
 	}
 	
 	public void habilitaBotaoSortear(){
