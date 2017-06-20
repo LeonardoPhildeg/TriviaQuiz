@@ -7,6 +7,9 @@ package controladores;
 
 import entidades.Pergunta;
 import entidades.Tema;
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Paths;
 import java.util.HashMap;
 import java.util.Random;
 
@@ -63,6 +66,17 @@ public class BancoPerguntas {
     }
 
     void instanciarPerguntas() {
+        
+        try {
+            for (int i = 5; i < 10; i++) {
+                String line32 = Files.readAllLines(Paths.get("C:\\Users\\Davi\\Desktop\\teste.txt")).get(i);
+                System.out.println(line32);
+            }
+	} catch (IOException ex){
+            ex.printStackTrace();
+        }
+            
+        
         /*HISTORIA(1),
         GEOGRAFIA(2),
         ESPORTES(3),
@@ -172,6 +186,16 @@ public class BancoPerguntas {
         esportes[3] = p_esportes3;
         Pergunta p_esportes4 = new Pergunta(Tema.ESPORTES, "", "", "", "", "", 1);
         esportes[4] = p_esportes4;
+        Pergunta p_esportes5 = new Pergunta(Tema.ESPORTES, "", "", "", "", "", 2);
+        esportes[5] = p_esportes5;
+        Pergunta p_esportes6 = new Pergunta(Tema.ESPORTES, "", "", "", "", "", 1);
+        esportes[6] = p_esportes6;
+        Pergunta p_esportes7 = new Pergunta(Tema.ESPORTES, "", "", "", "", "", 1);
+        esportes[7] = p_esportes7;
+        Pergunta p_esportes8 = new Pergunta(Tema.ESPORTES, "", "", "", "", "", 1);
+        esportes[8] = p_esportes8;
+        Pergunta p_esportes9 = new Pergunta(Tema.ESPORTES, "", "", "", "", "", 1);
+        esportes[9] = p_esportes9;
         
         //Perguntas de Ciencias
         Pergunta p_ciencias = new Pergunta(Tema.CIENCIAS, "", "", "", "", "", 2);
