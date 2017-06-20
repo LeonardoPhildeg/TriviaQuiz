@@ -5,16 +5,17 @@
  */
 package views;
 
+import rede.AtorJogador;
+
 /**
  *
  * @author Leonardo
  */
 public class TelaPergunta extends javax.swing.JFrame {
 
-    /**
-     * Creates new form TelaPergunta
-     */
-    public TelaPergunta() {
+    protected AtorJogador atorJogador;
+    
+    public TelaPergunta(AtorJogador atorJogador) {
         initComponents();
         this.setLocationRelativeTo(null);
     }
