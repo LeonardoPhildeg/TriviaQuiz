@@ -31,21 +31,21 @@ public class AtorNetGames implements OuvidorProxy{
 
     
     public void conectar(String idJogador, String servidor)  {
-        try{
-    	proxy.conectar(servidor, idJogador);
-    		atorJogador.getTelaPrincipal().showDialog("Conectado");
+        try {
+            proxy.conectar(servidor, idJogador);
+            atorJogador.getTelaPrincipal().showDialog("Conectado");
         }catch (Exception e) {
-			atorJogador.getTelaPrincipal().showDialog(e.getMessage());
-		}
+            atorJogador.getTelaPrincipal().showDialog(e.getMessage());
+	}
     }
     
     public void desconectar()  {
         try {
-			proxy.desconectar();
-		} catch (NaoConectadoException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
+            proxy.desconectar();
+	} catch (NaoConectadoException e) {
+	// TODO Auto-generated catch block
+            e.printStackTrace();
+	}
     }
     
     public void iniciarPartidaRede(){
@@ -61,7 +61,7 @@ public class AtorNetGames implements OuvidorProxy{
     @Override
     public void iniciarNovaPartida(Integer posicao) {
     	minhaVez = posicao == 1 ? true : false;
-		atorJogador.iniciarPartidaResposta(minhaVez);
+	atorJogador.iniciarPartidaResposta(minhaVez);
     }
     
 
