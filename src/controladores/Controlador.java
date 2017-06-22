@@ -29,8 +29,8 @@ public class Controlador {
     
     public Controlador(AtorJogador atorJogador){
         this.atorJogador = atorJogador;
-       // this.bancoPerguntas = new BancoPerguntas(this);
-       // bancoPerguntas.instanciarPerguntas();
+        this.bancoPerguntas = new BancoPerguntas(this);
+        bancoPerguntas.instanciarPerguntas();
     }
     
 
@@ -53,19 +53,32 @@ public class Controlador {
  
     
     public Pergunta sortearPergunta(){
-        return null;
+        return bancoPerguntas.sortearPergunta();
     }
     
     public void exibirTelaPergunta(){
         
     }
     
-    public void conferirResposta(){
-        
+    public boolean conferirResposta(int respostaJogador) {
+        if (this.perguntaDaVez.getRespostaCerta() == respostaJogador) {
+        	return true;
+        } else {
+        	//passar a vez
+        }
+        return false;
     }
     
     public void addAcertosRodada(){
-        
+        if (jogador1.isJogadorDaVez()) {
+        	jogador1.getMesa().incrementarAcertosRodada();
+        	System.out.println(jogador1.getMesa().getAcertosRodada());
+        	System.out.println("asdasd");
+        } else {
+        	jogador2.getMesa().incrementarAcertosRodada();
+        	System.out.println(jogador2.getMesa().getAcertosRodada());
+        	System.out.println("asdasd");
+        }
     }
     
     public Pergunta sortearPerguntaByIdTema(int tema){
@@ -179,6 +192,11 @@ public class Controlador {
 		}
 
 		return true;
+	}
+
+
+	public void setPerguntaDaVez(Pergunta pergunta) {
+		this.perguntaDaVez = pergunta;
 	}
 	
 	

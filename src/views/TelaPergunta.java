@@ -5,18 +5,27 @@
  */
 package views;
 
+import rede.AtorJogador;
+import java.awt.event.ActionListener;
+
+import javax.swing.JOptionPane;
+
+import java.awt.event.ActionEvent;
+
 /**
  *
  * @author Leonardo
  */
 public class TelaPergunta extends javax.swing.JFrame {
 
-    /**
-     * Creates new form TelaPergunta
-     */
-    public TelaPergunta() {
+    protected AtorJogador atorJogador;
+    protected int resposta;
+    
+    public TelaPergunta(AtorJogador atorJogador) {
+    	this.atorJogador = atorJogador;
         initComponents();
         this.setLocationRelativeTo(null);
+        this.setDefaultCloseOperation(DISPOSE_ON_CLOSE);
     }
 
     /**
@@ -30,9 +39,31 @@ public class TelaPergunta extends javax.swing.JFrame {
 
         jPanel1 = new javax.swing.JPanel();
         jButtonAlternativa1 = new javax.swing.JButton();
+        jButtonAlternativa1.addActionListener(new ActionListener() {
+        	public void actionPerformed(ActionEvent ev) {
+        		setResposta(1);
+        	}
+        });
         jButtonAlternativa2 = new javax.swing.JButton();
+        jButtonAlternativa2.addActionListener(new ActionListener() {
+        	public void actionPerformed(ActionEvent ev) {
+        		setResposta(2);
+        	}
+        });
         jButtonAlternativa3 = new javax.swing.JButton();
+        jButtonAlternativa3.addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				setResposta(3);
+			}
+		});
         jButtonAlternativa4 = new javax.swing.JButton();
+        jButtonAlternativa4.addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				setResposta(4);
+			}
+		});
         jLabelEnunciado = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -107,4 +138,28 @@ public class TelaPergunta extends javax.swing.JFrame {
     private javax.swing.JLabel jLabelEnunciado;
     private javax.swing.JPanel jPanel1;
     // End of variables declaration//GEN-END:variables
+    
+    public void exibirTela(String enunciado, String[] alternativas) {
+    	jLabelEnunciado.setText(enunciado);
+    	jButtonAlternativa1.setText(alternativas[0]);
+    	jButtonAlternativa2.setText(alternativas[1]);
+    	jButtonAlternativa3.setText(alternativas[2]);
+    	jButtonAlternativa4.setText(alternativas[3]);
+    	setVisible(true);
+    }
+    
+	public void setResposta(int n) {
+		this.resposta = n;
+		atorJogador.conferirResposta(resposta);
+	}
+
+	public void errou() {
+		JOptionPane.showMessageDialog(null, "Reposta errada");
+		this.dispose();
+	}
+	
+	public void acertou() {
+		JOptionPane.showMessageDialog(null, "Resposta certa");
+		this.dispose();
+	}
 }

@@ -5,6 +5,9 @@ package rede;
 //import br.ufsc.inf.leobr.cliente.exception.NaoConectadoException;
 //import br.ufsc.inf.leobr.cliente.exception.NaoPossivelConectarException;
 import controladores.Controlador;
+import entidades.Jogador;
+import entidades.Pergunta;
+import views.TelaPergunta;
 import views.TelaPrincipal;
 
 /**
@@ -17,21 +20,23 @@ public class AtorJogador {
     protected Controlador jogo;
     protected AtorNetGames atorNetGames;
     protected TelaPrincipal telaPrincipal;
+    protected TelaPergunta telaPergunta;
     
     public AtorJogador(){
         this.telaPrincipal = new TelaPrincipal(this);
+        this.telaPergunta = new TelaPergunta(this);
         this.telaPrincipal.exibeTela();
         this.showNameQuestion();
         atorNetGames = new AtorNetGames(this);
         
     }
     
-	private void showNameQuestion() {
-		this.nome = this.telaPrincipal.showNameQuestion();
-		if (this.nome.isEmpty()) {
-			this.nome = "Anônimo";
-		}
-	}
+    private void showNameQuestion() {
+    this.nome = this.telaPrincipal.showNameQuestion();
+        if (this.nome.isEmpty()) {
+            this.nome = "Anï¿½nimo";
+        }
+    }
     
     
     public TelaPrincipal getTelaPrincipal(){
@@ -59,7 +64,7 @@ public class AtorJogador {
         if(comecoJogando){
             jogo.criarJogador(this.nome, true);
             jogo.criarJogador(nomeOutroJogador, false);
-            this.telaPrincipal.showDialog("Jogo iniciado!\nVocê começa jogando!");
+            this.telaPrincipal.showDialog("Jogo iniciado!\nVocï¿½ comeï¿½a jogando!");
             this.telaPrincipal.atualizarNomeJogador1(this.nome, true);
             this.telaPrincipal.atualizarNomeJogador2(nomeOutroJogador, false);
             telaPrincipal.habilitaBotaoSortear();
@@ -68,7 +73,7 @@ public class AtorJogador {
         }else{
             jogo.criarJogador(nomeOutroJogador, false);
             jogo.criarJogador(this.nome, true);
-            this.telaPrincipal.showDialog("Jogo iniciado!\nAguarde a jogada de seu adversário.");
+            this.telaPrincipal.showDialog("Jogo iniciado!\nAguarde a jogada de seu adversï¿½rio.");
             this.telaPrincipal.atualizarNomeJogador1(nomeOutroJogador, false);
             this.telaPrincipal.atualizarNomeJogador2(this.nome, true);
             telaPrincipal.desabilitaBotaoSortear();
@@ -79,45 +84,66 @@ public class AtorJogador {
     
     public void sortearPergunta(){
     	if(atorNetGames.ehMinhaVez()){
-    		System.out.println("Oi LINDO!");
-    		
-    	}else{
-    		telaPrincipal.showDialog("Não é a sua vez!");
+            Pergunta pergunta = jogo.sortearPergunta();
+            
+            if (pergunta!=null) {
+	            String[] alternativas = new String[4];
+	            alternativas[0] = pergunta.getAlternativa1();
+	            alternativas[1] = pergunta.getAlternativa2();
+	            alternativas[2] = pergunta.getAlternativa3();
+	            alternativas[3] = pergunta.getAlternativa4();
+	            int resposta = pergunta.getRespostaCerta();
+	            jogo.setPerguntaDaVez(pergunta);
+	            telaPergunta.exibirTela(pergunta.getEnunciado(),alternativas);
+	            
+	            /*if(jogo.conferirResposta(pergunta, respostaJogador)) {
+	            	jogo.addAcertosRodada();
+	            	telaPrincipal.showDialog("Acerto");
+	            	this.telaPrincipal.atualizarInterface(jogo.getEstado());
+	            	//atualizar a tela principal
+	            } else {
+	            	telaPrincipal.showDialog("Errado");
+	            	//passar a vez
+	            }*/
+            } else {
+            	this.telaPrincipal.showDialog("BUG NA PERGUNTA");
+            }    
+    	} else{
+            telaPrincipal.showDialog("Nï¿½o ï¿½ a sua vez!");
     	}
     }
         
         
       public void renderSe(){
         if(atorNetGames.ehMinhaVez()){
-        	jogo.renderSe();
-        	this.enviarEstado();
-        	telaPrincipal.atualizarInterface(jogo.getEstado());
-        	this.telaPrincipal.showDialog("Você se rendeu.\nO jogo acabou.");
-        	telaPrincipal.desabilitaBotaoRenderSe();
-        	telaPrincipal.habilitarIniciarPartida();
-        }
-        else{
-        	telaPrincipal.showDialog("Não é a sua vez!");
+            jogo.renderSe();
+       	    this.enviarEstado();
+            telaPrincipal.atualizarInterface(jogo.getEstado());
+            this.telaPrincipal.showDialog("Vocï¿½ se rendeu.\nO jogo acabou.");
+            telaPrincipal.desabilitaBotaoRenderSe();
+            telaPrincipal.habilitarIniciarPartida();
+        } else {
+            telaPrincipal.showDialog("Nï¿½o ï¿½ a sua vez!");
         }
     }
     
 	public void avisarRendeuSe() {
 		telaPrincipal.desabilitaBotaoSortear();
 		telaPrincipal.desabilitaBotaoRenderSe();
-		this.telaPrincipal.showDialog("O outro jogador se rendeu.\nParabéns! Você é o vencedor! ;)\nO jogo acabou.");
+		this.telaPrincipal.showDialog("O outro jogador se rendeu.\nParabï¿½ns! Vocï¿½ ï¿½ o vencedor! ;)\nO jogo acabou.");
 	}
 	
 	public void avisarVencedor() {
 		telaPrincipal.desabilitaBotaoSortear();
 		telaPrincipal.desabilitaBotaoRenderSe();
 		telaPrincipal.habilitarIniciarPartida();
-		this.telaPrincipal.showDialog("Parabéns! Você é o vencedor! ;)\nO jogo acabou.");
+		this.telaPrincipal.showDialog("Parabï¿½ns! Vocï¿½ ï¿½ o vencedor! ;)\nO jogo acabou.");
 	}
 	
 	public void avisarPerdedor() {
 		telaPrincipal.desabilitaBotaoSortear();
 		telaPrincipal.desabilitaBotaoRenderSe();
-		this.telaPrincipal.showDialog("Você perdeu :(\nO jogo acabou.");
+		this.telaPrincipal.showDialog("Vocï¿½ perdeu :(\nO jogo acabou.");
 	}
     
     
@@ -157,5 +183,17 @@ public class AtorJogador {
 		}
     }
     
-
+    public void conferirResposta(int respostaJogador) {
+    	boolean acerto = jogo.conferirResposta(respostaJogador);
+    	if (acerto) {
+    		jogo.addAcertosRodada();
+    		telaPergunta.acertou();
+    	} else {
+    		telaPergunta.errou();
+    	}
+    	//jogo.atualizaEstadoJ(jogadorDaVez);
+    	
+    	//acho que depois dessa método que é necessárioa atualizar o placar de acertos
+    }
+    
 }
