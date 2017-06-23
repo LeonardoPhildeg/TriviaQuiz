@@ -45,7 +45,7 @@ public class TelaEscolheTema extends javax.swing.JFrame {
 
         jButtonEsportes.setText("ESPORTES");
 
-        jButtonCiencias.setText("CIÍNCIAS");
+        jButtonCiencias.setText("CI NCIAS");
 
         jButtonIngles.setText("INGL S");
 

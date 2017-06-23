@@ -137,7 +137,7 @@ public class AtorJogador {
 		telaPrincipal.desabilitaBotaoSortear();
 		telaPrincipal.desabilitaBotaoRenderSe();
 		telaPrincipal.habilitarIniciarPartida();
-		this.telaPrincipal.showDialog("Parabéns! Você o vencedor! ;)\nO jogo acabou.");
+		this.telaPrincipal.showDialog("Parabéns! Você é o vencedor! ;)\nO jogo acabou.");
 	}
 	
 	public void avisarPerdedor() {
