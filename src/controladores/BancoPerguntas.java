@@ -144,7 +144,7 @@ public class BancoPerguntas {
         geografia[3] = p_geografia3;
         Pergunta p_geografia4 = new Pergunta(Tema.GEOGRAFIA, "Qual o nome do meridiano que separa o planeta em parte orienta e ocidental", "Meridiano de Leakey", "Meridiano de Bering", "Meridiano de Crasring", "Meridiano de Greenwich", 4);
         geografia[4] = p_geografia4;
-        Pergunta p_geografia5 = new Pergunta(Tema.GEOGRAFIA, "Em qual estado e região se localiza as cidades Água Branca, Souza e João Pessoa?", "Nenhuma das alternativas", "Centro-Oeste (Bahia-BH)", "Sudeste (São Paulo SP)", "Nordeste (Paraíba PB)", 4);
+        Pergunta p_geografia5 = new Pergunta(Tema.GEOGRAFIA, "Em qual estado e região se localiza as cidades água Branca, Souza e João Pessoa?", "Nenhuma das alternativas", "Centro-Oeste (Bahia-BH)", "Sudeste (São Paulo SP)", "Nordeste (Paraíba PB)", 4);
         geografia[5] = p_geografia5;
         Pergunta p_geografia6 = new Pergunta(Tema.GEOGRAFIA, "Em que cidade brasileira se localiza o Palácio do Planalto?", "Brasília", "São Paulo", "Rio de Janeiro", "Minas Gerais", 1);
         geografia[6] = p_geografia6;
@@ -259,7 +259,7 @@ public class BancoPerguntas {
         Pergunta p_ciencias19 = new Pergunta(Tema.CIENCIAS, "", "", "", "", "", 2);
         ciencias[19] = p_ciencias19;
         
-        //Perguntas de InglÃªs
+        //Perguntas de Inglãªs
         Pergunta p_ingles = new Pergunta(Tema.INGLES, "", "", "", "", "", 2);
         esportes[0] = p_ingles;
         Pergunta p_ingles1 = new Pergunta(Tema.INGLES, "", "", "", "", "", 2);

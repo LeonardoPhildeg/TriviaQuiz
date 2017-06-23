@@ -39,15 +39,15 @@ public class TelaEscolheTema extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jButtonHistoria.setText("HISTÃ“RIA");
+        jButtonHistoria.setText("HISTÓRIA");
 
         jButtonGeografia.setText("GEOGRAFIA");
 
         jButtonEsportes.setText("ESPORTES");
 
-        jButtonCiencias.setText("CIÃŠNCIAS");
+        jButtonCiencias.setText("CIêNCIAS");
 
-        jButtonIngles.setText("INGLÃŠS");
+        jButtonIngles.setText("INGLÊS");
 
         jButtonEntretenimento.setText("ENTRETENIMENTO");
 

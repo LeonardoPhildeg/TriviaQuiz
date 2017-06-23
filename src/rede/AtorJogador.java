@@ -34,7 +34,7 @@ public class AtorJogador {
     private void showNameQuestion() {
     this.nome = this.telaPrincipal.showNameQuestion();
         if (this.nome.isEmpty()) {
-            this.nome = "Anï¿½nimo";
+            this.nome = "Anônimo";
         }
     }
     
@@ -64,7 +64,7 @@ public class AtorJogador {
         if(comecoJogando){
             jogo.criarJogador(this.nome, true);
             jogo.criarJogador(nomeOutroJogador, false);
-            this.telaPrincipal.showDialog("Jogo iniciado!\nVocï¿½ comeï¿½a jogando!");
+            this.telaPrincipal.showDialog("Jogo iniciado!\nVocê começa jogando!");
             this.telaPrincipal.atualizarNomeJogador1(this.nome, true);
             this.telaPrincipal.atualizarNomeJogador2(nomeOutroJogador, false);
             telaPrincipal.habilitaBotaoSortear();
@@ -73,7 +73,7 @@ public class AtorJogador {
         }else{
             jogo.criarJogador(nomeOutroJogador, false);
             jogo.criarJogador(this.nome, true);
-            this.telaPrincipal.showDialog("Jogo iniciado!\nAguarde a jogada de seu adversï¿½rio.");
+            this.telaPrincipal.showDialog("Jogo iniciado!\nAguarde a jogada de seu adversário.");
             this.telaPrincipal.atualizarNomeJogador1(nomeOutroJogador, false);
             this.telaPrincipal.atualizarNomeJogador2(this.nome, true);
             telaPrincipal.desabilitaBotaoSortear();
@@ -109,7 +109,7 @@ public class AtorJogador {
             	this.telaPrincipal.showDialog("BUG NA PERGUNTA");
             }    
     	} else{
-            telaPrincipal.showDialog("Nï¿½o ï¿½ a sua vez!");
+            telaPrincipal.showDialog("Não é a sua vez!");
     	}
     }
         
@@ -119,31 +119,31 @@ public class AtorJogador {
             jogo.renderSe();
        	    this.enviarEstado();
             telaPrincipal.atualizarInterface(jogo.getEstado());
-            this.telaPrincipal.showDialog("Vocï¿½ se rendeu.\nO jogo acabou.");
+            this.telaPrincipal.showDialog("Você se rendeu.\nO jogo acabou.");
             telaPrincipal.desabilitaBotaoRenderSe();
             telaPrincipal.habilitarIniciarPartida();
         } else {
-            telaPrincipal.showDialog("Nï¿½o ï¿½ a sua vez!");
+            telaPrincipal.showDialog("Não é a sua vez!");
         }
     }
     
 	public void avisarRendeuSe() {
 		telaPrincipal.desabilitaBotaoSortear();
 		telaPrincipal.desabilitaBotaoRenderSe();
-		this.telaPrincipal.showDialog("O outro jogador se rendeu.\nParabï¿½ns! Vocï¿½ ï¿½ o vencedor! ;)\nO jogo acabou.");
+		this.telaPrincipal.showDialog("O outro jogador se rendeu.\nParabéns! Você é o vencedor! ;)\nO jogo acabou.");
 	}
 	
 	public void avisarVencedor() {
 		telaPrincipal.desabilitaBotaoSortear();
 		telaPrincipal.desabilitaBotaoRenderSe();
 		telaPrincipal.habilitarIniciarPartida();
-		this.telaPrincipal.showDialog("Parabï¿½ns! Vocï¿½ ï¿½ o vencedor! ;)\nO jogo acabou.");
+		this.telaPrincipal.showDialog("Parabéns! Você o vencedor! ;)\nO jogo acabou.");
 	}
 	
 	public void avisarPerdedor() {
 		telaPrincipal.desabilitaBotaoSortear();
 		telaPrincipal.desabilitaBotaoRenderSe();
-		this.telaPrincipal.showDialog("Vocï¿½ perdeu :(\nO jogo acabou.");
+		this.telaPrincipal.showDialog("Você perdeu :(\nO jogo acabou.");
 	}
     
     
