@@ -1,6 +1,4 @@
 
-
-
 import rede.AtorJogador;
 
 /*
