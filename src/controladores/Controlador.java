@@ -59,82 +59,58 @@ public class Controlador {
     public void exibirTelaPergunta(){
         
     }
-    
     public boolean conferirResposta(int respostaJogador) {
         if (this.perguntaDaVez.getRespostaCerta() == respostaJogador) {
         	return true;
-        } else {
-        	//passar a vez
-        }
+        } 
+//        else {
+//        	//passar a vez
+//        }
         return false;
     }
     
     public void addAcertosRodada(){
-        if (jogador1.isJogadorDaVez()) {
-        	jogador1.getMesa().incrementarAcertosRodada();
-        	System.out.println(jogador1.getMesa().getAcertosRodada());
-        	System.out.println("asdasd");
-        } else {
-        	jogador2.getMesa().incrementarAcertosRodada();
-        	System.out.println(jogador2.getMesa().getAcertosRodada());
-        	System.out.println("asdasd");
-        }
+    	Mesa mesaLocal = getJogadorLocal().getMesa();
+    	mesaLocal.incrementarPontosGanhos();
+    	mesaLocal.incrementarAcertosRodada();
+    	if(mesaLocal.acertosRodada ==  2){
+    		System.out.println("cfasfdsadsadasdasdasda");
+    	}
+    }
+    
+    public int getPontosGanhos(){
+    	Mesa mesaLocal = getJogadorLocal().getMesa();
+    	return mesaLocal.getPontosGanhos();
+    }
+    
+    public void addPontosGanhos(){
+    	Mesa mesaLocal = getJogadorLocal().getMesa();
+    	mesaLocal.incrementarPontosGanhos();
+    	mesaLocal.decrementarPontosAGanhar();
+    }
+
+    
+    public int getAcertosRodada(){
+    	Mesa mesaLocal = getJogadorLocal().getMesa();
+    	return mesaLocal.getAcertosRodada();
+    }
+    
+    public void zerarAcertosRodada(){
+    	Mesa mesaLocal = getJogadorLocal().getMesa();
+    	mesaLocal.zerarAcertosRodada();
     }
     
     public Pergunta sortearPerguntaByIdTema(int tema){
         return null;
     }
     
-    public void atualizaEstadoJogador(Jogador jogadorDaVez){
-        
-    }
+
     
     
     public void informarVencedor(Jogador jogadorDaVez){
         
     }
     
-    public Jogador getJogadorDaVez(){
-        return null;
-    }
-    
-    public void enviarJogada(){
-        
-    }
-    
-    public void receberJogada(EstadoDoJogo estado){
-        
-    }
-    
-    
-    public void setPartidaEmAndamento(boolean partidaEmAndamento){
-        
-    }
-    
-
-    
-    public boolean informarConectado(){
-        return false;
-    }
-    
-    public void estabelecerConectado(boolean valor){
-        
-    }
-    
-    public void estabelecerDesconectado(boolean valor){
-        
-    }
-    
-    
-    public boolean verificarPartidaEmAndamento(){
-        return false;
-    }
-    
-//    public static void main(String[] args) {
-//        Controlador controlador = new Controlador()
-//        controlador.iniciar();
-//        
-//    }
     
 	public Jogador getJogador1() {
 		return jogador1;

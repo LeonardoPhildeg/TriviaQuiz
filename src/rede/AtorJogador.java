@@ -5,8 +5,8 @@ package rede;
 //import br.ufsc.inf.leobr.cliente.exception.NaoConectadoException;
 //import br.ufsc.inf.leobr.cliente.exception.NaoPossivelConectarException;
 import controladores.Controlador;
-import entidades.Jogador;
 import entidades.Pergunta;
+import views.TelaEscolheTema;
 import views.TelaPergunta;
 import views.TelaPrincipal;
 
@@ -21,10 +21,12 @@ public class AtorJogador {
     protected AtorNetGames atorNetGames;
     protected TelaPrincipal telaPrincipal;
     protected TelaPergunta telaPergunta;
+    protected TelaEscolheTema telaEscolheTema;
     
     public AtorJogador(){
         this.telaPrincipal = new TelaPrincipal(this);
         this.telaPergunta = new TelaPergunta(this);
+        this.telaEscolheTema = new TelaEscolheTema(this);
         this.telaPrincipal.exibeTela();
         this.showNameQuestion();
         atorNetGames = new AtorNetGames(this);
@@ -92,7 +94,7 @@ public class AtorJogador {
 	            alternativas[1] = pergunta.getAlternativa2();
 	            alternativas[2] = pergunta.getAlternativa3();
 	            alternativas[3] = pergunta.getAlternativa4();
-	            int resposta = pergunta.getRespostaCerta();
+	           // int resposta = pergunta.getRespostaCerta();
 	            jogo.setPerguntaDaVez(pergunta);
 	            telaPergunta.exibirTela(pergunta.getEnunciado(),alternativas);
 	            
@@ -188,12 +190,18 @@ public class AtorJogador {
     	if (acerto) {
     		jogo.addAcertosRodada();
     		telaPergunta.acertou();
+    		if(jogo.getAcertosRodada() == 2){
+    			telaEscolheTema.exibeTelaEscolheTema();
+    			jogo.zerarAcertosRodada();
+    		}
+    		telaPrincipal.atualizarInterface(jogo.getEstado());
     	} else {
     		telaPergunta.errou();
+    		jogo.zerarAcertosRodada();
+    		this.enviarEstado();
+    		telaPrincipal.atualizarInterface(jogo.getEstado());
     	}
-    	//jogo.atualizaEstadoJ(jogadorDaVez);
-    	
-    	//acho que depois dessa método que é necessárioa atualizar o placar de acertos
+
     }
     
 }

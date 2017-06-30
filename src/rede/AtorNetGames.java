@@ -15,6 +15,10 @@ public class AtorNetGames implements OuvidorProxy{
     /**
 	 * 
 	 */
+	private static final long serialVersionUID = 1L;
+	/**
+	 * 
+	 */
     
     protected AtorJogador atorJogador;
     protected Proxy proxy;
@@ -33,10 +37,10 @@ public class AtorNetGames implements OuvidorProxy{
     public void conectar(String idJogador, String servidor)  {
         try {
             proxy.conectar(servidor, idJogador);
-            atorJogador.getTelaPrincipal().showDialog("Conectado");
-        }catch (Exception e) {
-            atorJogador.getTelaPrincipal().showDialog(e.getMessage());
-	}
+            atorJogador.getTelaPrincipal().showDialog("Conexão estabelecida com sucesso");
+        }catch (Exception msg) {
+            atorJogador.getTelaPrincipal().showDialog(msg.getMessage());
+        }
     }
     
     public void desconectar()  {
@@ -61,7 +65,7 @@ public class AtorNetGames implements OuvidorProxy{
     @Override
     public void iniciarNovaPartida(Integer posicao) {
     	minhaVez = posicao == 1 ? true : false;
-	atorJogador.iniciarPartidaResposta(minhaVez);
+    	atorJogador.iniciarPartidaResposta(minhaVez);
     }
     
 

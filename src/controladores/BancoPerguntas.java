@@ -60,7 +60,7 @@ public class BancoPerguntas {
     }
     
     public int sorteiaNumeroAleatorio(){
-        return random.nextInt(20);
+        return random.nextInt(19);
     }
 
     void instanciarPerguntas() {
@@ -259,45 +259,45 @@ public class BancoPerguntas {
         
         //Perguntas sobre Inglês
         Pergunta p_ingles = new Pergunta(Tema.INGLES, "Qual é o pretérito da palavra 'Keep'?", "Keeped", "Keep", "Kept", "Kepted", 3);
-        esportes[0] = p_ingles;
+        ingles[0] = p_ingles;
         Pergunta p_ingles1 = new Pergunta(Tema.INGLES, "Qual é o pretérito da palavra 'Choose'?", "Choosed", "Chosed", "Chossed", "Chose", 4);
-        esportes[1] = p_ingles1;
+        ingles[1] = p_ingles1;
         Pergunta p_ingles2 = new Pergunta(Tema.INGLES, "Qual sufixo identifica o uso do Past Continuous?", "-ed", "-ing", "-'t", "Nenhuma das anteriores", 2);
-        esportes[2] = p_ingles2;
+        ingles[2] = p_ingles2;
         Pergunta p_ingles3 = new Pergunta(Tema.INGLES, "'Batata frita' é comumente falada nos EUA e Inglaterra, respectivamente:", "Chips e Fries", "Fries e Crisps", "Crisps e Chips", "Fries e Chips", 4);
-        esportes[3] = p_ingles3;
+        ingles[3] = p_ingles3;
         Pergunta p_ingles4 = new Pergunta(Tema.INGLES, "'Call off' pode ser traduzido como:", "Ligar", "Atender", "Cancelar", "Chamar", 3);
-        esportes[4] = p_ingles4;
+        ingles[4] = p_ingles4;
         Pergunta p_ingles5 = new Pergunta(Tema.INGLES, "Qual das seguintes palavras significa tanto uma parte do corpo quanto um animal?", "Deltoid", "Calf", "Ox", "Arm", 2);
-        esportes[5] = p_ingles5;
+        ingles[5] = p_ingles5;
         Pergunta p_ingles6 = new Pergunta(Tema.INGLES, "Qual a tradução do termo 'abroad'?", "A bordo", "Apontado", "No exterior", "Corretamente", 3);
-        esportes[6] = p_ingles6;
+        ingles[6] = p_ingles6;
         Pergunta p_ingles7 = new Pergunta(Tema.INGLES, "Complete a frase: 'Do you know what time...", "...it is?", "...is it?", "...are?", "...is?", 1);
-        esportes[7] = p_ingles7;
+        ingles[7] = p_ingles7;
         Pergunta p_ingles8 = new Pergunta(Tema.INGLES, "", "", "", "", "", 2);
-        esportes[8] = p_ingles8;
+        ingles[8] = p_ingles8;
         Pergunta p_ingles9 = new Pergunta(Tema.INGLES, "", "", "", "", "", 2);
-        esportes[9] = p_ingles9;
+        ingles[9] = p_ingles9;
         Pergunta p_ingles10 = new Pergunta(Tema.INGLES, "", "", "", "", "", 2);
-        esportes[10] = p_ingles10;
+        ingles[10] = p_ingles10;
         Pergunta p_ingles11 = new Pergunta(Tema.INGLES, "", "", "", "", "", 2);
-        esportes[11] = p_ingles11;
+        ingles[11] = p_ingles11;
         Pergunta p_ingles12 = new Pergunta(Tema.INGLES, "", "", "", "", "", 2);
-        esportes[12] = p_ingles12;
+        ingles[12] = p_ingles12;
         Pergunta p_ingles13 = new Pergunta(Tema.INGLES, "", "", "", "", "", 2);
-        esportes[13] = p_ingles13;
+        ingles[13] = p_ingles13;
         Pergunta p_ingles14 = new Pergunta(Tema.INGLES, "", "", "", "", "", 2);
-        esportes[14] = p_ingles14;
+        ingles[14] = p_ingles14;
         Pergunta p_ingles15 = new Pergunta(Tema.INGLES, "", "", "", "", "", 2);
-        esportes[15] = p_ingles15;
+        ingles[15] = p_ingles15;
         Pergunta p_ingles16 = new Pergunta(Tema.INGLES, "", "", "", "", "", 2);
-        esportes[16] = p_ingles16;
+        ingles[16] = p_ingles16;
         Pergunta p_ingles17 = new Pergunta(Tema.INGLES, "", "", "", "", "", 2);
-        esportes[17] = p_ingles17;
+        ingles[17] = p_ingles17;
         Pergunta p_ingles18 = new Pergunta(Tema.INGLES, "", "", "", "", "", 2);
-        esportes[18] = p_ingles18;
+        ingles[18] = p_ingles18;
         Pergunta p_ingles19 = new Pergunta(Tema.INGLES, "", "", "", "", "", 2);
-        esportes[19] = p_ingles19;
+        ingles[19] = p_ingles19;
         
         //Perguntas sobre Entretenimento
         Pergunta p_entretenimento = new Pergunta(Tema.ENTRETENIMENTO, "Qual o primeiro nome verdadeiro do 'Seu Madruga' da série de comédia 'Chaves'?", "Ronan", "Ramon", "Henrique", "Pablo", 2);

@@ -5,17 +5,21 @@
  */
 package views;
 
+import rede.AtorJogador;
+
 /**
  *
  * @author Leonardo
  */
 public class TelaEscolheTema extends javax.swing.JFrame {
 
-    /**
-     * Creates new form TelaEscolheTema
-     */
-    public TelaEscolheTema() {
-        initComponents();
+	
+	protected AtorJogador atorJogador;
+	
+	
+    public TelaEscolheTema(AtorJogador atorJogador) {
+        this.atorJogador = atorJogador;
+    	initComponents();
         this.setLocationRelativeTo(null);
     }
 
@@ -40,17 +44,48 @@ public class TelaEscolheTema extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         jButtonHistoria.setText("HISTÓRIA");
+        jButtonHistoria.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonHistoriaActionPerformed(evt);
+            }
+        });
 
         jButtonGeografia.setText("GEOGRAFIA");
+        jButtonGeografia.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonGeografiaActionPerformed(evt);
+            }
+        });
 
         jButtonEsportes.setText("ESPORTES");
+        jButtonEsportes.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonEsportesActionPerformed(evt);
+            }
+        });
 
         jButtonCiencias.setText("CIÊNCIAS");
+        jButtonCiencias.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonCienciasActionPerformed(evt);
+            }
+        });
 
         jButtonIngles.setText("INGLÊS");
+        jButtonIngles.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonInglesActionPerformed(evt);
+            }
+        });
 
         jButtonEntretenimento.setText("ENTRETENIMENTO");
+        jButtonEntretenimento.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonEntretenimentoActionPerformed(evt);
+            }
+        });
 
+        jLabel1.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         jLabel1.setText("Escolha um tema para superar:");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
@@ -64,36 +99,41 @@ public class TelaEscolheTema extends javax.swing.JFrame {
                         .addComponent(jLabel1)
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(jButtonHistoria, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jButtonGeografia, javax.swing.GroupLayout.DEFAULT_SIZE, 123, Short.MAX_VALUE)
-                            .addComponent(jButtonEsportes, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 34, Short.MAX_VALUE)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(jButtonEntretenimento, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jButtonIngles, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jButtonCiencias, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                        .addContainerGap(61, Short.MAX_VALUE))))
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jButtonEsportes, javax.swing.GroupLayout.PREFERRED_SIZE, 138, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jButtonHistoria, javax.swing.GroupLayout.PREFERRED_SIZE, 137, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jButtonGeografia, javax.swing.GroupLayout.PREFERRED_SIZE, 137, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 110, Short.MAX_VALUE)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jButtonCiencias, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 149, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jButtonEntretenimento, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 149, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jButtonIngles, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 149, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(70, 70, 70))))
         );
+
+        jPanel1Layout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {jButtonEsportes, jButtonGeografia, jButtonHistoria, jButtonIngles});
+
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(26, 26, 26)
-                .addComponent(jLabel1)
-                .addGap(18, 18, 18)
+                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(38, 38, 38)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButtonHistoria)
-                    .addComponent(jButtonCiencias))
-                .addGap(31, 31, 31)
+                    .addComponent(jButtonHistoria, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jButtonEntretenimento, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(37, 37, 37)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButtonGeografia)
+                    .addComponent(jButtonGeografia, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jButtonCiencias, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(46, 46, 46)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jButtonEsportes, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jButtonIngles))
-                .addGap(34, 34, 34)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButtonEntretenimento)
-                    .addComponent(jButtonEsportes))
-                .addContainerGap(97, Short.MAX_VALUE))
+                .addGap(47, 47, 47))
         );
+
+        jPanel1Layout.linkSize(javax.swing.SwingConstants.VERTICAL, new java.awt.Component[] {jButtonCiencias, jButtonEntretenimento, jButtonEsportes, jButtonGeografia, jButtonHistoria, jButtonIngles});
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -113,6 +153,30 @@ public class TelaEscolheTema extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private void jButtonHistoriaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonHistoriaActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButtonHistoriaActionPerformed
+
+    private void jButtonGeografiaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonGeografiaActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButtonGeografiaActionPerformed
+
+    private void jButtonEsportesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonEsportesActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButtonEsportesActionPerformed
+
+    private void jButtonEntretenimentoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonEntretenimentoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButtonEntretenimentoActionPerformed
+
+    private void jButtonCienciasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonCienciasActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButtonCienciasActionPerformed
+
+    private void jButtonInglesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonInglesActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButtonInglesActionPerformed
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButtonCiencias;
     private javax.swing.JButton jButtonEntretenimento;
@@ -123,4 +187,24 @@ public class TelaEscolheTema extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
     // End of variables declaration//GEN-END:variables
+    
+    
+    public void exibeTelaEscolheTema() {
+        setVisible(true);
+    }
+    
+    
+    
+    
+    
+    
+    
 }
+
+
+	
+
+
+
+
+

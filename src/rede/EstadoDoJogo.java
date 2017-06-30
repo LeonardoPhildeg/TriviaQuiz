@@ -15,6 +15,10 @@ import entidades.Jogador;
 public class EstadoDoJogo implements Jogada {
     
     
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	protected Mesa mesa1;
 	protected Mesa mesa2;
 	protected int numeroRodada;

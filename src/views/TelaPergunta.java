@@ -42,12 +42,14 @@ public class TelaPergunta extends javax.swing.JFrame {
         jButtonAlternativa1.addActionListener(new ActionListener() {
         	public void actionPerformed(ActionEvent ev) {
         		setResposta(1);
+        		atorJogador.getTelaPrincipal().habilitaBotaoSortear();
         	}
         });
         jButtonAlternativa2 = new javax.swing.JButton();
         jButtonAlternativa2.addActionListener(new ActionListener() {
         	public void actionPerformed(ActionEvent ev) {
         		setResposta(2);
+        		atorJogador.getTelaPrincipal().habilitaBotaoSortear();
         	}
         });
         jButtonAlternativa3 = new javax.swing.JButton();
@@ -55,6 +57,7 @@ public class TelaPergunta extends javax.swing.JFrame {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				setResposta(3);
+				atorJogador.getTelaPrincipal().habilitaBotaoSortear();
 			}
 		});
         jButtonAlternativa4 = new javax.swing.JButton();
@@ -62,6 +65,7 @@ public class TelaPergunta extends javax.swing.JFrame {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				setResposta(4);
+				atorJogador.getTelaPrincipal().habilitaBotaoSortear();
 			}
 		});
         jLabelEnunciado = new javax.swing.JLabel();
