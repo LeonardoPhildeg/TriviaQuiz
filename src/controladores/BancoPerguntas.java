@@ -27,6 +27,41 @@ public class BancoPerguntas {
         this.perguntas = new HashMap<>();
         this.random = new Random();
     }
+    
+    
+    //TESTE
+    public Pergunta[] sortearArrayByTema(int numero){
+        
+    	Pergunta[] temaSorteado = null;
+        switch (numero) {
+            case 0: temaSorteado = perguntas.get(Tema.HISTORIA);
+                    break;
+            case 1: temaSorteado = perguntas.get(Tema.GEOGRAFIA);
+                    break;
+            case 2: temaSorteado = perguntas.get(Tema.ESPORTES);
+                    break;
+            case 3: temaSorteado = perguntas.get(Tema.CIENCIAS);
+                    break;
+            case 4: temaSorteado = perguntas.get(Tema.INGLES);
+                    break;
+            case 5: temaSorteado = perguntas.get(Tema.ENTRETENIMENTO);
+                    break;
+        }
+        
+        return temaSorteado;
+    }
+    
+    public Pergunta sortearPerguntaByID(int num){
+        Pergunta[] arrayPerguntas = sortearArrayByTema(num);
+        int numero = sorteiaNumeroAleatorio();
+        return arrayPerguntas[numero];
+    }
+    
+    //TESTE 
+    
+    
+    
+    
 
     public Pergunta sortearPergunta(){
         Pergunta[] arrayPerguntas = sortearArrayPerguntas();

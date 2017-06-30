@@ -39,13 +39,16 @@ public class Controlador {
     }
     
     //Verificar a lógica desse método, está com base no método do tribal wars
-    public void verificarVencedor(){
-    	Jogador jogadorLocal = this.getJogadorLocal();
-    	if(jogadorLocal.getMesa().pontosAGanhar == 0){
+    public boolean verificarVencedor(){
+    	Mesa mesaLocal = getJogadorLocal().getMesa();
+    	if(mesaLocal.pontosAGanhar == 0){
     		this.atorJogador.avisarVencedor();
     		this.jogadorDaVezVenceu = true;
+    		return true;
     	}	
+    	return false;
     }		
+    	
 //    	if(jogadorRemoto.getVila().getPontosDeVida() <= 0){
 //    		this.atorJogador.avisarVencedor();
 //   			this.jogadorDaVezEhVencedor = true;
@@ -71,7 +74,7 @@ public class Controlador {
     
     public void addAcertosRodada(){
     	Mesa mesaLocal = getJogadorLocal().getMesa();
-    	mesaLocal.incrementarPontosGanhos();
+    	//mesaLocal.incrementarPontosGanhos();
     	mesaLocal.incrementarAcertosRodada();
     	if(mesaLocal.acertosRodada ==  2){
     		System.out.println("cfasfdsadsadasdasdasda");
@@ -176,7 +179,9 @@ public class Controlador {
 	}
 	
 	
-
+	public Pergunta sortearById(int num){
+		return bancoPerguntas.sortearPerguntaByID(num);
+	}
 	
     
     

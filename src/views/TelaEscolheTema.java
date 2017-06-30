@@ -46,42 +46,48 @@ public class TelaEscolheTema extends javax.swing.JFrame {
         jButtonHistoria.setText("HISTÓRIA");
         jButtonHistoria.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButtonHistoriaActionPerformed(evt);
+                atorJogador.sortearPerguntaById(0);
+                fechaTelaEscolheTema();
             }
         });
 
         jButtonGeografia.setText("GEOGRAFIA");
         jButtonGeografia.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButtonGeografiaActionPerformed(evt);
+            	atorJogador.sortearPerguntaById(1);
+            	fechaTelaEscolheTema();
             }
         });
 
         jButtonEsportes.setText("ESPORTES");
         jButtonEsportes.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButtonEsportesActionPerformed(evt);
+            	atorJogador.sortearPerguntaById(2);
+            	fechaTelaEscolheTema();
             }
         });
 
         jButtonCiencias.setText("CIÊNCIAS");
         jButtonCiencias.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButtonCienciasActionPerformed(evt);
+            	atorJogador.sortearPerguntaById(3);
+            	fechaTelaEscolheTema();
             }
         });
 
         jButtonIngles.setText("INGLÊS");
         jButtonIngles.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButtonInglesActionPerformed(evt);
+            	atorJogador.sortearPerguntaById(4);
+            	fechaTelaEscolheTema();
             }
         });
 
         jButtonEntretenimento.setText("ENTRETENIMENTO");
         jButtonEntretenimento.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButtonEntretenimentoActionPerformed(evt);
+            	atorJogador.sortearPerguntaById(5);
+            	fechaTelaEscolheTema();
             }
         });
 
@@ -193,6 +199,9 @@ public class TelaEscolheTema extends javax.swing.JFrame {
         setVisible(true);
     }
     
+    public void fechaTelaEscolheTema(){
+    	setVisible(false);
+    }
     
     
     
