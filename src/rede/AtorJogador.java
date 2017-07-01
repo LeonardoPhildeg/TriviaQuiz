@@ -30,7 +30,7 @@ public class AtorJogador {
         this.telaPergunta = new TelaPergunta(this);
         this.telaEscolheTema = new TelaEscolheTema(this);
         this.telaPerguntaByTemaEscolhido = new TelaPerguntaByTemaEscolhido(this);
-        this.telaPrincipal.exibeTela();
+        exibeTela();
         this.showNameQuestion();
         atorNetGames = new AtorNetGames(this);
         
@@ -43,23 +43,17 @@ public class AtorJogador {
         }
     }
     
+    public void exibeTela(){
+    	this.telaPrincipal.exibeTela();
+    	telaPrincipal.desabilitaBotaoSortear();
+    	telaPrincipal.desabilitaBotaoRenderSe();
+    }
+    
     
     public TelaPrincipal getTelaPrincipal(){
         return telaPrincipal;
     }
-    
-    public int escolherTema(){
-        return 0;
-    }
-    
-    public int clickEscolherTema(int idTema){
-        return 0;
-    }
-    
-    public String notificarVencedor(String mensagem){
-        return"";
-    }
-    
+        
     public void iniciarPartidaResposta(boolean comecoJogando){
     	telaPrincipal.desabilitarIniciarPartida();
     	String nomeOutroJogador = atorNetGames.obterNomeAdversario();
@@ -97,39 +91,29 @@ public class AtorJogador {
 	            alternativas[1] = pergunta.getAlternativa2();
 	            alternativas[2] = pergunta.getAlternativa3();
 	            alternativas[3] = pergunta.getAlternativa4();
-	           // int resposta = pergunta.getRespostaCerta();
 	            jogo.setPerguntaDaVez(pergunta);
 	            telaPergunta.exibirTela(pergunta.getEnunciado(),alternativas);
-	            
-	            /*if(jogo.conferirResposta(pergunta, respostaJogador)) {
-	            	jogo.addAcertosRodada();
-	            	telaPrincipal.showDialog("Acerto");
-	            	this.telaPrincipal.atualizarInterface(jogo.getEstado());
-	            	//atualizar a tela principal
-	            } else {
-	            	telaPrincipal.showDialog("Errado");
-	            	//passar a vez
-	            }*/
-            } else {
-            	this.telaPrincipal.showDialog("BUG NA PERGUNTA");
             }    
-    	} else{
-            telaPrincipal.showDialog("Não é a sua vez!");
+    	}
+    	else{
+    		telaPrincipal.showDialog("Não é a sua vez!");
     	}
     }
+	            
+
+             
     
     public void sortearPerguntaById(int num){
     	if(atorNetGames.ehMinhaVez()){
     		Pergunta pergunta = jogo.sortearById(num);
-    		
     		if(pergunta != null){
     			String[] alternativas = new String[4];
-	            alternativas[0] = pergunta.getAlternativa1();
-	            alternativas[1] = pergunta.getAlternativa2();
-	            alternativas[2] = pergunta.getAlternativa3();
-	            alternativas[3] = pergunta.getAlternativa4();
-	            jogo.setPerguntaDaVez(pergunta);
-	            telaPerguntaByTemaEscolhido.exibirTela(pergunta.getEnunciado(),alternativas);
+    			alternativas[0] = pergunta.getAlternativa1();
+    			alternativas[1] = pergunta.getAlternativa2();
+    			alternativas[2] = pergunta.getAlternativa3();
+    			alternativas[3] = pergunta.getAlternativa4();
+    			jogo.setPerguntaDaVez(pergunta);
+    			telaPerguntaByTemaEscolhido.exibirTela(pergunta.getEnunciado(),alternativas);
     		}
     		else{
     			this.telaPrincipal.showDialog("BUG NA PERGUNTA");
@@ -137,24 +121,9 @@ public class AtorJogador {
     	}
     }
     
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
+    		
         
-        
-      public void renderSe(){
+    public void renderSe(){
         if(atorNetGames.ehMinhaVez()){
             jogo.renderSe();
        	    this.enviarEstado();
@@ -194,16 +163,9 @@ public class AtorJogador {
     public void iniciarPartidaPedido() {
         atorNetGames.iniciarPartidaRede();
     }
-    
-    
-    
+       
     public void desconectar(){
         atorNetGames.desconectar();
-    }
-    
-    
-    public boolean avaliarInterrupcao(){
-        return false;
     }
 
     public void enviarEstado(){
