@@ -17,7 +17,6 @@ import views.TelaPrincipal;
  */
 public class AtorJogador {
     
-	
     protected String nome;
     protected Controlador jogo;
     protected AtorNetGames atorNetGames;
