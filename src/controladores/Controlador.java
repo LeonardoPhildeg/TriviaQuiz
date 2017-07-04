@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package controladores;
 
 import entidades.Jogador;
@@ -10,10 +5,6 @@ import entidades.Pergunta;
 import rede.AtorJogador;
 import rede.EstadoDoJogo;
 
-/**
- *
- * @author Leonardo
- */
 public class Controlador {
     
 	protected Jogador jogador1;
@@ -38,7 +29,6 @@ public class Controlador {
         this.jogadorDaVezRendeuSe = true;
     }
     
-    //Verificar a lógica desse método, está com base no método do tribal wars
     public boolean verificarVencedor(){
     	Mesa mesaLocal = getJogadorLocal().getMesa();
     	if(mesaLocal.pontosAGanhar == 0){
@@ -49,9 +39,6 @@ public class Controlador {
     	return false;
     }		
     	
-
-    		
- 
     
     public Pergunta sortearPergunta(){
         return bancoPerguntas.sortearPergunta();
@@ -69,9 +56,6 @@ public class Controlador {
     public void addAcertosRodada(){
     	Mesa mesaLocal = getJogadorLocal().getMesa();
     	mesaLocal.incrementarAcertosRodada();
-    	if(mesaLocal.acertosRodada ==  2){
-    		System.out.println("cfasfdsadsadasdasdasda");
-    	}
     }
     
     	
@@ -163,18 +147,6 @@ public class Controlador {
     
     public Pergunta sortearById(int num){
     	return bancoPerguntas.sortearPerguntaByID(num);
-    }
-
-    
-
-    
-    
-
-    
-    
-	
-    
-    
-    
+    }   
     
 }

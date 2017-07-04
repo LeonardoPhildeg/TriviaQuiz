@@ -1,9 +1,5 @@
 package rede;
 
-//import br.ufsc.inf.leobr.cliente.exception.ArquivoMultiplayerException;
-//import br.ufsc.inf.leobr.cliente.exception.JahConectadoException;
-//import br.ufsc.inf.leobr.cliente.exception.NaoConectadoException;
-//import br.ufsc.inf.leobr.cliente.exception.NaoPossivelConectarException;
 import controladores.Controlador;
 import entidades.Pergunta;
 import views.TelaEscolheTema;
@@ -11,10 +7,7 @@ import views.TelaPergunta;
 import views.TelaPerguntaByTemaEscolhido;
 import views.TelaPrincipal;
 
-/**
- *
- * @author Leonardo
- */
+
 public class AtorJogador {
     
     protected String nome;
@@ -59,7 +52,6 @@ public class AtorJogador {
     	String nomeOutroJogador = atorNetGames.obterNomeAdversario();
         jogo = new Controlador(this);
         
-        System.out.println("chegou aqui");
         if(comecoJogando){
             jogo.criarJogador(this.nome, true);
             jogo.criarJogador(nomeOutroJogador, false);
@@ -72,7 +64,7 @@ public class AtorJogador {
         }else{
             jogo.criarJogador(nomeOutroJogador, false);
             jogo.criarJogador(this.nome, true);
-            this.telaPrincipal.showDialog("Jogo iniciado!\nAguarde a jogada de seu adversário.");
+            this.telaPrincipal.showDialog("Jogo iniciado!\nAguar de a jogada de seu adversário.");
             this.telaPrincipal.atualizarNomeJogador1(nomeOutroJogador, false);
             this.telaPrincipal.atualizarNomeJogador2(this.nome, true);
             telaPrincipal.desabilitaBotaoSortear();

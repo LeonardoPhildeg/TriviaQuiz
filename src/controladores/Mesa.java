@@ -4,9 +4,6 @@ import br.ufsc.inf.leobr.cliente.Jogada;
 
 public class Mesa implements Jogada {
 
-	/**
-	 * 
-	 */
 	private static final long serialVersionUID = 1L;
 	protected int pontosAGanhar;
 	protected int pontosGanhos;
@@ -33,7 +30,6 @@ public class Mesa implements Jogada {
 		return acertosRodada;
 	}
 
-
 	public void decrementarPontosAGanhar(){
 		this.pontosAGanhar = this.pontosAGanhar - 1;
 	}
@@ -48,10 +44,6 @@ public class Mesa implements Jogada {
 	
 	public void zerarAcertosRodada(){
 		this.acertosRodada = 0;
-	}
-
-
-
-	
+	}	
 	
 }
