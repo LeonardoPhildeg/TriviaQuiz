@@ -92,7 +92,7 @@ public class AtorJogador {
 	            alternativas[2] = pergunta.getAlternativa3();
 	            alternativas[3] = pergunta.getAlternativa4();
 	            jogo.setPerguntaDaVez(pergunta);
-	            telaPergunta.exibirTela(pergunta.getEnunciado(),alternativas);
+	            telaPergunta.exibirTela(pergunta.getEnunciado(), alternativas);
             }    
     	}
     	else{
