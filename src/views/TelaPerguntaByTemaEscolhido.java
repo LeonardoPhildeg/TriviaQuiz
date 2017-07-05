@@ -3,6 +3,8 @@ package views;
 import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+
+import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
 import javax.swing.SwingConstants;
 
@@ -147,12 +149,24 @@ public class TelaPerguntaByTemaEscolhido extends javax.swing.JFrame {
 	}
 
 	public void errou() {
-		JOptionPane.showMessageDialog(null, "Reposta errada");
+		//JOptionPane.showMessageDialog(null, "Reposta errada");
+        ImageIcon iconErrou = new ImageIcon(TelaPerguntaByTemaEscolhido.class.getResource("errou.gif"));
+        JOptionPane.showMessageDialog(
+                null,
+                "",
+                "Você errou!", JOptionPane.INFORMATION_MESSAGE,
+                iconErrou);
 		this.dispose();
 	}
 	
 	public void acertou() {
-		JOptionPane.showMessageDialog(null, "Resposta certa");
+		//JOptionPane.showMessageDialog(null, "Resposta certa");
+		 ImageIcon iconAcertou = new ImageIcon(TelaPerguntaByTemaEscolhido.class.getResource("acertou.gif"));
+	        JOptionPane.showMessageDialog(
+	                null,
+	                "",
+	                "Certa resposta!", JOptionPane.INFORMATION_MESSAGE,
+	                iconAcertou);
 		this.dispose();
 	}
 
