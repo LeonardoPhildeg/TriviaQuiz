@@ -14,6 +14,9 @@ import javax.swing.LayoutStyle.ComponentPlacement;
 import rede.AtorJogador;
 import rede.EstadoDoJogo;
 import controladores.Mesa;
+import javax.swing.JLabel;
+import javax.swing.SwingConstants;
+import java.awt.Font;
 
 public class TelaPrincipal extends javax.swing.JFrame {
 
@@ -55,22 +58,22 @@ public class TelaPrincipal extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jLabelJogador1.setFont(new java.awt.Font("Tahoma", 3, 18));
+        jLabelJogador1.setFont(new Font("Tahoma", Font.BOLD | Font.ITALIC, 20));
         jLabelJogador1.setText("Jogador1");
 
-        jLabel2.setFont(new java.awt.Font("Tahoma", 0, 12));
+        jLabel2.setFont(new Font("Tahoma", Font.PLAIN, 16));
         jLabel2.setText("Pontos a Ganhar:");
 
-        jLabel3.setFont(new java.awt.Font("Tahoma", 0, 12));
+        jLabel3.setFont(new Font("Tahoma", Font.PLAIN, 16));
         jLabel3.setText("Pontos Ganhos:");
 
-        jLabelJogador2.setFont(new java.awt.Font("Tahoma", 3, 18));
+        jLabelJogador2.setFont(new Font("Tahoma", Font.BOLD | Font.ITALIC, 20));
         jLabelJogador2.setText("Jogador2");
 
-        jLabel5.setFont(new java.awt.Font("Tahoma", 0, 12));
+        jLabel5.setFont(new Font("Tahoma", Font.PLAIN, 16));
         jLabel5.setText("Pontos a Ganhar:");
 
-        jLabel6.setFont(new java.awt.Font("Tahoma", 0, 12));
+        jLabel6.setFont(new Font("Tahoma", Font.PLAIN, 16));
         jLabel6.setText("Pontos Ganhos:");
 
         jButtonSortearPergunta.setFont(new java.awt.Font("Tahoma", 1, 14));
@@ -89,76 +92,98 @@ public class TelaPrincipal extends javax.swing.JFrame {
             }
         });
 
-        jLabelPontosGanharJog1.setFont(new java.awt.Font("Tahoma", 0, 12));
+        jLabelPontosGanharJog1.setFont(new Font("Tahoma", Font.BOLD, 16));
         jLabelPontosGanharJog1.setText("pontos");
         jLabelPontosGanharJog1.setToolTipText("");
 
-        jLabelPontosGanhosJog1.setFont(new java.awt.Font("Tahoma", 0, 12));
+        jLabelPontosGanhosJog1.setFont(new Font("Tahoma", Font.BOLD, 16));
         jLabelPontosGanhosJog1.setText("pontos");
 
-        jLabelPontosGanharJog2.setFont(new java.awt.Font("Tahoma", 0, 12));
+        jLabelPontosGanharJog2.setFont(new Font("Tahoma", Font.BOLD, 16));
         jLabelPontosGanharJog2.setText("pontos");
 
-        jLabelPontosGanhosJog2.setFont(new java.awt.Font("Tahoma", 0, 12));
+        jLabelPontosGanhosJog2.setFont(new Font("Tahoma", Font.BOLD, 16));
         jLabelPontosGanhosJog2.setText("pontos");
+        
+        labelImagem = new JLabel("");
+        labelImagem.setHorizontalAlignment(SwingConstants.CENTER);
+        labelImagem.setIcon(new javax.swing.ImageIcon(getClass().getResource("/bla.png"))); 
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1Layout.setHorizontalGroup(
-        	jPanel1Layout.createParallelGroup(Alignment.TRAILING)
+        	jPanel1Layout.createParallelGroup(Alignment.LEADING)
         		.addGroup(jPanel1Layout.createSequentialGroup()
         			.addContainerGap()
         			.addGroup(jPanel1Layout.createParallelGroup(Alignment.LEADING)
+        				.addComponent(jLabelJogador1, GroupLayout.PREFERRED_SIZE, 171, GroupLayout.PREFERRED_SIZE)
         				.addGroup(jPanel1Layout.createSequentialGroup()
         					.addGroup(jPanel1Layout.createParallelGroup(Alignment.LEADING)
         						.addComponent(jLabel2)
         						.addComponent(jLabel3))
         					.addPreferredGap(ComponentPlacement.UNRELATED)
-        					.addGroup(jPanel1Layout.createParallelGroup(Alignment.LEADING, false)
-        						.addComponent(jLabelPontosGanhosJog1, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-        						.addComponent(jLabelPontosGanharJog1, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-        				.addComponent(jButtonRenderSe, GroupLayout.PREFERRED_SIZE, 98, GroupLayout.PREFERRED_SIZE)
-        				.addComponent(jLabelJogador1, GroupLayout.PREFERRED_SIZE, 171, GroupLayout.PREFERRED_SIZE))
-        			.addPreferredGap(ComponentPlacement.RELATED, 186, Short.MAX_VALUE)
+        					.addGroup(jPanel1Layout.createParallelGroup(Alignment.LEADING)
+        						.addComponent(jLabelPontosGanhosJog1)
+        						.addComponent(jLabelPontosGanharJog1, GroupLayout.DEFAULT_SIZE, 73, Short.MAX_VALUE))))
+        			.addGap(87)
+        			.addComponent(labelImagem)
+        			.addGap(115)
         			.addGroup(jPanel1Layout.createParallelGroup(Alignment.LEADING)
         				.addGroup(jPanel1Layout.createSequentialGroup()
-        					.addGroup(jPanel1Layout.createParallelGroup(Alignment.LEADING)
-        						.addComponent(jLabel6)
-        						.addComponent(jLabel5))
+        					.addComponent(jLabel5)
         					.addPreferredGap(ComponentPlacement.RELATED)
-        					.addGroup(jPanel1Layout.createParallelGroup(Alignment.LEADING)
-        						.addComponent(jLabelPontosGanhosJog2)
-        						.addComponent(jLabelPontosGanharJog2)))
-        				.addComponent(jLabelJogador2, GroupLayout.PREFERRED_SIZE, 173, GroupLayout.PREFERRED_SIZE))
+        					.addComponent(jLabelPontosGanharJog2))
+        				.addComponent(jLabelJogador2, GroupLayout.PREFERRED_SIZE, 173, GroupLayout.PREFERRED_SIZE)
+        				.addGroup(jPanel1Layout.createSequentialGroup()
+        					.addComponent(jLabel6)
+        					.addPreferredGap(ComponentPlacement.UNRELATED)
+        					.addComponent(jLabelPontosGanhosJog2)))
         			.addGap(57))
         		.addGroup(jPanel1Layout.createSequentialGroup()
-        			.addGap(42)
-        			.addComponent(jButtonSortearPergunta, GroupLayout.PREFERRED_SIZE, 508, GroupLayout.PREFERRED_SIZE)
-        			.addContainerGap(47, Short.MAX_VALUE))
+        			.addGap(92)
+        			.addComponent(jButtonSortearPergunta, GroupLayout.PREFERRED_SIZE, 504, GroupLayout.PREFERRED_SIZE)
+        			.addContainerGap(147, Short.MAX_VALUE))
+        		.addGroup(jPanel1Layout.createSequentialGroup()
+        			.addContainerGap()
+        			.addComponent(jButtonRenderSe, GroupLayout.PREFERRED_SIZE, 116, GroupLayout.PREFERRED_SIZE)
+        			.addContainerGap(617, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
         	jPanel1Layout.createParallelGroup(Alignment.LEADING)
         		.addGroup(jPanel1Layout.createSequentialGroup()
-        			.addGap(20)
-        			.addGroup(jPanel1Layout.createParallelGroup(Alignment.BASELINE)
-        				.addComponent(jLabelJogador1)
-        				.addComponent(jLabelJogador2))
-        			.addPreferredGap(ComponentPlacement.UNRELATED)
         			.addGroup(jPanel1Layout.createParallelGroup(Alignment.LEADING)
-        				.addGroup(jPanel1Layout.createParallelGroup(Alignment.BASELINE)
-        					.addComponent(jLabel2)
-        					.addComponent(jLabel5)
-        					.addComponent(jLabelPontosGanharJog2))
-        				.addComponent(jLabelPontosGanharJog1, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        			.addGroup(jPanel1Layout.createParallelGroup(Alignment.BASELINE)
-        				.addComponent(jLabel3)
-        				.addComponent(jLabel6)
-        				.addComponent(jLabelPontosGanhosJog1)
-        				.addComponent(jLabelPontosGanhosJog2))
-        			.addGap(62)
-        			.addComponent(jButtonSortearPergunta, GroupLayout.PREFERRED_SIZE, 52, GroupLayout.PREFERRED_SIZE)
-        			.addPreferredGap(ComponentPlacement.RELATED, 125, Short.MAX_VALUE)
-        			.addComponent(jButtonRenderSe, GroupLayout.PREFERRED_SIZE, 36, GroupLayout.PREFERRED_SIZE)
-        			.addContainerGap())
+        				.addGroup(jPanel1Layout.createSequentialGroup()
+        					.addGroup(jPanel1Layout.createParallelGroup(Alignment.LEADING)
+        						.addGroup(jPanel1Layout.createSequentialGroup()
+        							.addGap(20)
+        							.addGroup(jPanel1Layout.createParallelGroup(Alignment.BASELINE)
+        								.addComponent(jLabelJogador1)
+        								.addComponent(jLabelJogador2))
+        							.addPreferredGap(ComponentPlacement.UNRELATED)
+        							.addGroup(jPanel1Layout.createParallelGroup(Alignment.BASELINE)
+        								.addComponent(jLabel2)
+        								.addComponent(jLabel5)
+        								.addComponent(jLabelPontosGanharJog2)
+        								.addComponent(jLabelPontosGanharJog1, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        							.addPreferredGap(ComponentPlacement.UNRELATED)
+        							.addGroup(jPanel1Layout.createParallelGroup(Alignment.LEADING)
+        								.addGroup(jPanel1Layout.createParallelGroup(Alignment.BASELINE)
+        									.addComponent(jLabelPontosGanhosJog1)
+        									.addComponent(jLabel3))
+        								.addGroup(jPanel1Layout.createParallelGroup(Alignment.BASELINE)
+        									.addComponent(jLabel6)
+        									.addComponent(jLabelPontosGanhosJog2)))
+        							.addGap(136))
+        						.addGroup(jPanel1Layout.createSequentialGroup()
+        							.addGap(28)
+        							.addComponent(labelImagem)
+        							.addPreferredGap(ComponentPlacement.RELATED)))
+        					.addGap(178))
+        				.addGroup(Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+        					.addContainerGap()
+        					.addComponent(jButtonSortearPergunta, GroupLayout.PREFERRED_SIZE, 66, GroupLayout.PREFERRED_SIZE)
+        					.addGap(123)))
+        			.addPreferredGap(ComponentPlacement.RELATED)
+        			.addComponent(jButtonRenderSe, GroupLayout.PREFERRED_SIZE, 44, GroupLayout.PREFERRED_SIZE))
         );
         jPanel1.setLayout(jPanel1Layout);
 
@@ -196,19 +221,19 @@ public class TelaPrincipal extends javax.swing.JFrame {
         setJMenuBar(jMenuBar1);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addContainerGap())
+        	layout.createParallelGroup(Alignment.LEADING)
+        		.addGroup(layout.createSequentialGroup()
+        			.addComponent(jPanel1, GroupLayout.DEFAULT_SIZE, 743, Short.MAX_VALUE)
+        			.addContainerGap())
         );
         layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addContainerGap())
+        	layout.createParallelGroup(Alignment.LEADING)
+        		.addGroup(layout.createSequentialGroup()
+        			.addComponent(jPanel1, GroupLayout.DEFAULT_SIZE, 490, Short.MAX_VALUE)
+        			.addContainerGap())
         );
+        getContentPane().setLayout(layout);
 
         pack();
     }
@@ -254,6 +279,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel1;
 
     private javax.swing.JMenuItem JMenuItemDesconectar;
+    private JLabel labelImagem;
     // End of variables declaration//GEN-END:variables
 
 
