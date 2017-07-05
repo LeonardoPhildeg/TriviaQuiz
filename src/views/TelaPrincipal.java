@@ -1,7 +1,14 @@
 package views;
 
+
 import javax.swing.GroupLayout;
 import javax.swing.GroupLayout.Alignment;
+
+import br.ufsc.inf.leobr.cliente.exception.NaoConectadoException;
+import controladores.Mesa;
+
+import java.awt.event.ActionEvent;
+
 import javax.swing.JOptionPane;
 import javax.swing.LayoutStyle.ComponentPlacement;
 import rede.AtorJogador;
@@ -41,6 +48,9 @@ public class TelaPrincipal extends javax.swing.JFrame {
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenuPartida = new javax.swing.JMenu();
         jMenuItemIniciarPartida = new javax.swing.JMenuItem();
+
+        JMenuItemDesconectar = new javax.swing.JMenuItem();
+
         jMenuItem1.setText("jMenuItem1");
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -160,10 +170,29 @@ public class TelaPrincipal extends javax.swing.JFrame {
                 jMenuItemIniciarPartidaActionPerformed(evt);
             }
         });
+        
+        JMenuItemDesconectar.setText("Desconectar");
+        JMenuItemDesconectar.addActionListener(new java.awt.event.ActionListener() {
+
+			public void actionPerformed(ActionEvent e) {
+				try {
+					atorJogador.desconectar();
+					JMenuItemDesconectar.setEnabled(false);
+					jMenuItemIniciarPartida.setEnabled(true);
+					JOptionPane.showMessageDialog(null,"Conexão encerrada com sucesso! Por favor, para voltar ao jogo abra uma nova janela");
+				} catch (Exception ex) {
+					JOptionPane.showMessageDialog(null, ex.getMessage());
+					ex.printStackTrace();
+				}
+				
+			}
+        	
+        });
+        
         jMenuPartida.add(jMenuItemIniciarPartida);
+        jMenuPartida.add(JMenuItemDesconectar);
 
         jMenuBar1.add(jMenuPartida);
-
         setJMenuBar(jMenuBar1);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -191,7 +220,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
     }
 
     private void jButtonRenderSeActionPerformed(java.awt.event.ActionEvent evt) {                                                
-		int result = JOptionPane.showConfirmDialog(this, "Voc� tem certeza de que deseja se render?", "Fechar jogo", JOptionPane.YES_NO_OPTION);
+		int result = JOptionPane.showConfirmDialog(this, "Vocï¿½ tem certeza de que deseja se render?", "Fechar jogo", JOptionPane.YES_NO_OPTION);
 		if (result == JOptionPane.YES_OPTION) {
 			atorJogador.renderSe();
 		}
@@ -200,10 +229,11 @@ public class TelaPrincipal extends javax.swing.JFrame {
     private void jMenuItemIniciarPartidaActionPerformed(java.awt.event.ActionEvent evt) {                                                        
     	atorJogador.iniciarPartidaPedido();
     }
-        
+
     private void jMenuItemDesconectarActionPerformed(java.awt.event.ActionEvent evt) {                                                     
     	atorJogador.desconectar();
     } 
+
 
     private javax.swing.JButton jButtonRenderSe;
     private javax.swing.JButton jButtonSortearPergunta;
@@ -222,6 +252,10 @@ public class TelaPrincipal extends javax.swing.JFrame {
     private javax.swing.JMenuItem jMenuItemIniciarPartida;
     private javax.swing.JMenu jMenuPartida;
     private javax.swing.JPanel jPanel1;
+
+    private javax.swing.JMenuItem JMenuItemDesconectar;
+    // End of variables declaration//GEN-END:variables
+
 
     public void showDialog(String msg) {
         JOptionPane.showMessageDialog(this, msg);

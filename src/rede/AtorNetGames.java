@@ -25,7 +25,7 @@ public class AtorNetGames implements OuvidorProxy{
     public void conectar(String idJogador, String servidor)  {
         try {
             proxy.conectar(servidor, idJogador);
-            atorJogador.getTelaPrincipal().showDialog("Conexão estabelecida com sucesso");
+            atorJogador.getTelaPrincipal().showDialog("Conexão estabelecida com sucesso!");
         }catch (Exception msg) {
             atorJogador.getTelaPrincipal().showDialog(msg.getMessage());
         }
