@@ -204,7 +204,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
 					atorJogador.desconectar();
 					JMenuItemDesconectar.setEnabled(false);
 					jMenuItemIniciarPartida.setEnabled(true);
-					JOptionPane.showMessageDialog(null,"Conexão encerrada com sucesso! Por favor, para voltar ao jogo abra uma nova janela");
+					JOptionPane.showMessageDialog(null,"Conex�o encerrada com sucesso! Por favor, para voltar ao jogo abra uma nova janela");
 				} catch (Exception ex) {
 					JOptionPane.showMessageDialog(null, ex.getMessage());
 					ex.printStackTrace();
@@ -245,7 +245,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
     }
 
     private void jButtonRenderSeActionPerformed(java.awt.event.ActionEvent evt) {                                                
-		int result = JOptionPane.showConfirmDialog(this, "Vocï¿½ tem certeza de que deseja se render?", "Fechar jogo", JOptionPane.YES_NO_OPTION);
+		int result = JOptionPane.showConfirmDialog(this, "Voc� tem certeza de que deseja se render?", "Fechar jogo", JOptionPane.YES_NO_OPTION);
 		if (result == JOptionPane.YES_OPTION) {
 			atorJogador.renderSe();
 		}
