@@ -64,7 +64,7 @@ public class AtorJogador {
         }else{
             jogo.criarJogador(nomeOutroJogador, false);
             jogo.criarJogador(this.nome, true);
-            this.telaPrincipal.showDialog("Jogo iniciado!\nAguar de a jogada de seu adversário.");
+            this.telaPrincipal.showDialog("Jogo iniciado!\nAguarde a jogada de seu adversário.");
             this.telaPrincipal.atualizarNomeJogador1(nomeOutroJogador, false);
             this.telaPrincipal.atualizarNomeJogador2(this.nome, true);
             telaPrincipal.desabilitaBotaoSortear();
