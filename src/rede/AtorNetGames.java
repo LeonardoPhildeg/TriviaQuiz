@@ -6,25 +6,13 @@ import br.ufsc.inf.leobr.cliente.exception.NaoConectadoException;
 import br.ufsc.inf.leobr.cliente.exception.NaoJogandoException;
 
 
-/**
- *
- * @author Leonardo
- */
 public class AtorNetGames implements OuvidorProxy{
     
-    /**
-	 * 
-	 */
 	private static final long serialVersionUID = 1L;
-	/**
-	 * 
-	 */
-    
+
     protected AtorJogador atorJogador;
     protected Proxy proxy;
     protected boolean minhaVez = false;
-    
-    
     
     public AtorNetGames(AtorJogador atorJogador){
         super();
@@ -47,7 +35,6 @@ public class AtorNetGames implements OuvidorProxy{
         try {
             proxy.desconectar();
 	} catch (NaoConectadoException e) {
-	// TODO Auto-generated catch block
             e.printStackTrace();
 	}
     }
@@ -85,7 +72,6 @@ public class AtorNetGames implements OuvidorProxy{
 
     @Override
     public void receberJogada(Jogada jogada) {
-        //Temos que ver esse método com mais precisão
         EstadoDoJogo estado = (EstadoDoJogo) jogada;
         atorJogador.receberEstado(estado);
         minhaVez = true;
@@ -119,7 +105,7 @@ public class AtorNetGames implements OuvidorProxy{
     
     @Override
     public void receberMensagem(String msg) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        throw new UnsupportedOperationException("Not supported yet.");
     }
     
     

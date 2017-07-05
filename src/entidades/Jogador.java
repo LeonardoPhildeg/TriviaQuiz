@@ -1,24 +1,13 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package entidades;
 
 import controladores.Mesa;
 
-/**
- *
- * @author Leonardo
- */
 public class Jogador {
     
     protected String nome;
     protected int idJogador;
     protected String [] temasGanhos;
     protected String [] temasAGanhar;
-    //protected int pontosGanhos;
-    //protected int pontosAGanhar;
     protected boolean jogadorLocal;
     protected Mesa mesa;
     
@@ -49,22 +38,6 @@ public class Jogador {
         return false;
     }
 
-    
-//    public int getPontosAGanhar(){
-//    	return this.pontosAGanhar;
-//    }
-//    
-//    public void setPontosAGanhar(int pontosAGanhar){
-//    	this.pontosAGanhar = pontosAGanhar;
-//    }
-//    
-//    public int getPontosAGanhos(){
-//    	return this.pontosGanhos;
-//    }
-//    
-//    public void setPontosGanhos(int pontosGanhos){
-//    	this.pontosGanhos = pontosGanhos;
-//    }
     
     public Mesa getMesa() {
     	return mesa;
