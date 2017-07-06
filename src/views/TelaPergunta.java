@@ -8,19 +8,15 @@ import java.awt.event.ActionListener;
 import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
 import javax.swing.SwingConstants;
-import javax.swing.UIManager;
-import javax.swing.UnsupportedLookAndFeelException;
-
 import java.awt.event.ActionEvent;
 import java.awt.Font;
-
 import javax.swing.GroupLayout.Alignment;
 import javax.swing.GroupLayout;
 import javax.swing.LayoutStyle.ComponentPlacement;
 
 public class TelaPergunta extends javax.swing.JFrame {
 
-	private static final long serialVersionUID = 1L;
+	
 	protected AtorJogador atorJogador;
     protected int resposta;
     

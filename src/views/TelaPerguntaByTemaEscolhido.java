@@ -12,7 +12,7 @@ import rede.AtorJogador;
 
 public class TelaPerguntaByTemaEscolhido extends javax.swing.JFrame {
 
-	private static final long serialVersionUID = 1L;
+	
 	
 	protected AtorJogador atorJogador;
     protected int resposta;

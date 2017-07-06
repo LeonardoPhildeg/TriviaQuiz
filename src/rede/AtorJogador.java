@@ -18,6 +18,7 @@ public class AtorJogador {
     protected TelaEscolheTema telaEscolheTema;
     protected TelaPerguntaByTemaEscolhido telaPerguntaByTemaEscolhido;
     
+    
     public AtorJogador(){
         this.telaPrincipal = new TelaPrincipal(this);
         this.telaPergunta = new TelaPergunta(this);
@@ -26,7 +27,7 @@ public class AtorJogador {
         exibeTela();
         this.showNameQuestion();
         atorNetGames = new AtorNetGames(this);
-        
+      
     }
     
     private void showNameQuestion() {
@@ -64,7 +65,7 @@ public class AtorJogador {
         }else{
             jogo.criarJogador(nomeOutroJogador, false);
             jogo.criarJogador(this.nome, true);
-            this.telaPrincipal.showDialog("Jogo iniciado!\nAguar de a jogada de seu adversário.");
+            this.telaPrincipal.showDialog("Jogo iniciado!\nAguarde a jogada do seu adversário.");
             this.telaPrincipal.atualizarNomeJogador1(nomeOutroJogador, false);
             this.telaPrincipal.atualizarNomeJogador2(this.nome, true);
             telaPrincipal.desabilitaBotaoSortear();
@@ -107,9 +108,7 @@ public class AtorJogador {
     			jogo.setPerguntaDaVez(pergunta);
     			telaPerguntaByTemaEscolhido.exibirTela(pergunta.getEnunciado(),alternativas);
     		}
-    		else{
-    			this.telaPrincipal.showDialog("BUG NA PERGUNTA");
-    		}
+    		
     	}
     }
     

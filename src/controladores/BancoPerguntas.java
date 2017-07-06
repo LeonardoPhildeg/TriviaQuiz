@@ -205,7 +205,7 @@ public class BancoPerguntas {
 		esportes[8] = p_esportes8;
 		Pergunta p_esportes9 = new Pergunta(Tema.ESPORTES, "Qual desses jogadores nunca ganhou o prêmio Bola de Ouro?", "Kaká", "Cristiano Ronaldo", "Neymar Jr.", "Lionel Messi", 3);
 		esportes[9] = p_esportes9;
-		Pergunta p_esportes10 = new Pergunta(Tema.ESPORTES, "Em qual esperte ganha quem fizer a menor pontuação?", "Hockey", "Rugby", "Golfe", "Judô", 3);
+		Pergunta p_esportes10 = new Pergunta(Tema.ESPORTES, "Em qual esporte ganha quem fizer a menor pontuação?", "Hockey", "Rugby", "Golfe", "Judô", 3);
 		esportes[10] = p_esportes10;
 		Pergunta p_esportes11 = new Pergunta(Tema.ESPORTES, "Em quantas copas domundo Pelé foi campeão como jogador?", "1", "2", "3", "4", 3);
 		esportes[11] = p_esportes11;

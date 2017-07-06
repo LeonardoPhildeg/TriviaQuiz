@@ -34,9 +34,9 @@ public class AtorNetGames implements OuvidorProxy{
     public void desconectar()  {
         try {
             proxy.desconectar();
-	} catch (NaoConectadoException e) {
+        } catch (NaoConectadoException e) {
             e.printStackTrace();
-	}
+		}
     }
     
     public void iniciarPartidaRede(){
@@ -80,12 +80,12 @@ public class AtorNetGames implements OuvidorProxy{
 
     @Override
     public void tratarConexaoPerdida() {
-        atorJogador.getTelaPrincipal().showDialog("A conexÃ£o com o servidor foi perdida");
+        atorJogador.getTelaPrincipal().showDialog("A conexão com o servidor foi perdida!");
     }
 
     @Override
     public void tratarPartidaNaoIniciada(String message) {
-        atorJogador.getTelaPrincipal().showDialog("Nï¿½o foi possï¿½vel iniciar a partida");
+        atorJogador.getTelaPrincipal().showDialog("Não foi possível iniciar a partida! \nProvavelmente não há outro jogador conectado.");
     }
     
     public boolean ehMinhaVez(){

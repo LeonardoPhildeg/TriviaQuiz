@@ -10,13 +10,13 @@ import java.awt.Component;
 
 public class TelaEscolheTema extends javax.swing.JFrame {
 
-	private static final long serialVersionUID = 1L;
+	
 	
 	protected AtorJogador atorJogador;
 	
     public TelaEscolheTema(AtorJogador atorJogador) {
     	setResizable(false);
-    	setTitle("Escolha de tema");
+    	setTitle("Escolha do tema");
         this.atorJogador = atorJogador;
     	initComponents();
         this.setLocationRelativeTo(null);
