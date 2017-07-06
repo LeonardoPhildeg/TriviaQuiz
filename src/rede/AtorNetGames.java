@@ -8,7 +8,6 @@ import br.ufsc.inf.leobr.cliente.exception.NaoJogandoException;
 
 public class AtorNetGames implements OuvidorProxy{
     
-	private static final long serialVersionUID = 1L;
 
     protected AtorJogador atorJogador;
     protected Proxy proxy;

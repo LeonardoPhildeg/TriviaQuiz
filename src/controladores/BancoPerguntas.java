@@ -88,7 +88,7 @@ public class BancoPerguntas {
 	}
 
 	public int sorteiaNumeroAleatorio() {
-		return random.nextInt(19);
+		return random.nextInt(20);
 	}
 
 	void instanciarPerguntas() {

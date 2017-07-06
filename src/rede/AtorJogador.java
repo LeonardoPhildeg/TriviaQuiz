@@ -118,31 +118,31 @@ public class AtorJogador {
         if(atorNetGames.ehMinhaVez()){
             jogo.renderSe();
        	    this.enviarEstado();
-            telaPrincipal.atualizarInterface(jogo.getEstado());
+            this.telaPrincipal.atualizarInterface(jogo.getEstado());
             this.telaPrincipal.showDialog("Você se rendeu.\nO jogo acabou.");
-            telaPrincipal.desabilitaBotaoRenderSe();
-            telaPrincipal.habilitarIniciarPartida();
+            this.telaPrincipal.desabilitaBotaoRenderSe();
+            this.telaPrincipal.habilitarIniciarPartida();
         } else {
-            telaPrincipal.showDialog("Não é a sua vez!");
+            this.telaPrincipal.showDialog("Não é a sua vez!");
         }
     }
     
 	public void avisarRendeuSe() {
-		telaPrincipal.desabilitaBotaoSortear();
-		telaPrincipal.desabilitaBotaoRenderSe();
+		this.telaPrincipal.desabilitaBotaoSortear();
+		this.telaPrincipal.desabilitaBotaoRenderSe();
 		this.telaPrincipal.showDialog("O outro jogador se rendeu.\nParabéns! Você é o vencedor! ;)\nO jogo acabou.");
 	}
 	
 	public void avisarVencedor() {
-		telaPrincipal.desabilitaBotaoSortear();
-		telaPrincipal.desabilitaBotaoRenderSe();
-		telaPrincipal.habilitarIniciarPartida();
+		this.telaPrincipal.desabilitaBotaoSortear();
+		this.telaPrincipal.desabilitaBotaoRenderSe();
+		this.telaPrincipal.habilitarIniciarPartida();
 		this.telaPrincipal.showDialog("Parabéns! Você é o vencedor! ;)\nO jogo acabou.");
 	}
 	
 	public void avisarPerdedor() {
-		telaPrincipal.desabilitaBotaoSortear();
-		telaPrincipal.desabilitaBotaoRenderSe();
+		this.telaPrincipal.desabilitaBotaoSortear();
+		this.telaPrincipal.desabilitaBotaoRenderSe();
 		this.telaPrincipal.showDialog("Você perdeu :(\nO jogo acabou.");
 	}
     
@@ -160,19 +160,19 @@ public class AtorJogador {
     }
 
     public void enviarEstado(){
-    	telaPrincipal.desabilitaBotaoSortear();
+    	this.telaPrincipal.desabilitaBotaoSortear();
     	atorNetGames.enviarEstado(jogo.getEstado());
     }
     
     public void receberEstado(EstadoDoJogo estado) {
-		telaPrincipal.atualizarInterface(estado);
+		this.telaPrincipal.atualizarInterface(estado);
 		if (!jogo.setEstado(estado)) {
-			telaPrincipal.desabilitaBotaoSortear();
-			telaPrincipal.desabilitaBotaoRenderSe();
-			telaPrincipal.habilitarIniciarPartida();
+			this.telaPrincipal.desabilitaBotaoSortear();
+			this.telaPrincipal.desabilitaBotaoRenderSe();
+			this.telaPrincipal.habilitarIniciarPartida();
 		} else {
-			telaPrincipal.habilitaBotaoSortear();
-			telaPrincipal.habilitaBotaoRenderSe();
+			this.telaPrincipal.habilitaBotaoSortear();
+			this.telaPrincipal.habilitaBotaoRenderSe();
 		}
     }
     
@@ -180,18 +180,18 @@ public class AtorJogador {
     	boolean acerto = jogo.conferirResposta(respostaJogador);
     	if (acerto) {
     		jogo.addAcertosRodada();
-    		telaPergunta.acertou();
+    		this.telaPergunta.acertou();
     		if(jogo.getAcertosRodada() == 2){
     			telaEscolheTema.exibeTelaEscolheTema();
     			jogo.zerarAcertosRodada();
     		}
     		telaPrincipal.atualizarInterface(jogo.getEstado());
     	} else {
-    		telaPrincipal.desabilitaBotaoSortear();
-    		telaPergunta.errou();
+    		this.telaPrincipal.desabilitaBotaoSortear();
+    		this.telaPergunta.errou();
     		jogo.zerarAcertosRodada();
     		this.enviarEstado();
-    		telaPrincipal.atualizarInterface(jogo.getEstado());
+    		this.telaPrincipal.atualizarInterface(jogo.getEstado());
     	}
 
     }
