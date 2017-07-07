@@ -149,7 +149,6 @@ public class TelaPerguntaByTemaEscolhido extends javax.swing.JFrame {
 	}
 
 	public void errou() {
-		//JOptionPane.showMessageDialog(null, "Reposta errada");
         ImageIcon iconErrou = new ImageIcon(TelaPerguntaByTemaEscolhido.class.getResource("errou.gif"));
         JOptionPane.showMessageDialog(
                 null,
@@ -160,7 +159,6 @@ public class TelaPerguntaByTemaEscolhido extends javax.swing.JFrame {
 	}
 	
 	public void acertou() {
-		//JOptionPane.showMessageDialog(null, "Resposta certa");
 		 ImageIcon iconAcertou = new ImageIcon(TelaPerguntaByTemaEscolhido.class.getResource("acertou.gif"));
 	        JOptionPane.showMessageDialog(
 	                null,
