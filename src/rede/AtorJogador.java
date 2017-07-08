@@ -210,7 +210,7 @@ public class AtorJogador {
 			jogo.addPontosConsecutivos();
 			
 			if(jogo.getPontosConsecutivos() == 3 ){
-				this.telaPrincipal.showDialog("Você não pode ganhar 3 pontos seguidos! \nAgora é a vez do seu adversário.");
+				this.telaPrincipal.showDialog("Você não pode ganhar mais que 3 pontos seguidos! \nAgora é a vez do seu adversário.");
 				jogo.zerarPontosConsecutivos();
 				this.enviarEstado();
 				this.telaPrincipal.atualizarInterface(jogo.getEstado());
