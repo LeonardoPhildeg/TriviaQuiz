@@ -51,6 +51,23 @@ public class Controlador {
         } 
         return false;
     }
+    
+    public void addPontosConsecutivos(){
+    	Mesa mesaLocal = getJogadorLocal().getMesa();
+    	mesaLocal.incrementarPontosConsecutivos();
+    }
+    	
+    
+    public void zerarPontosConsecutivos(){
+    	Mesa mesaLocal = getJogadorLocal().getMesa();
+    	mesaLocal.zerarPontosConsecutivos();
+    }
+    
+    public int getPontosConsecutivos(){
+    	Mesa mesaLocal = getJogadorLocal().getMesa();
+    	return mesaLocal.getPontosConsecutivos();
+    }
+
 
     
     public void addAcertosRodada(){

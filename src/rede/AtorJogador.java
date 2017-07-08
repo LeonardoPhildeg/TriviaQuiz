@@ -193,8 +193,9 @@ public class AtorJogador {
     		this.enviarEstado();
     		this.telaPrincipal.atualizarInterface(jogo.getEstado());
     	}
-
     }
+    	
+
     
     
     public void conferirRespostaById(int respostaJogador){
@@ -205,7 +206,15 @@ public class AtorJogador {
     		if(jogo.verificarVencedor()){
     			this.enviarEstado();
     		}
-    		telaPrincipal.atualizarInterface(jogo.getEstado());
+    		
+			jogo.addPontosConsecutivos();
+			
+			if(jogo.getPontosConsecutivos() == 3 ){
+				this.telaPrincipal.showDialog("Você não pode ganhar 3 pontos seguidos! \nAgora é a vez do seu adversário.");
+				this.enviarEstado();
+				this.telaPrincipal.atualizarInterface(jogo.getEstado());
+			}
+			telaPrincipal.atualizarInterface(jogo.getEstado());
     	}
     	else{
     		telaPerguntaByTemaEscolhido.errou();
@@ -213,6 +222,7 @@ public class AtorJogador {
     		telaPrincipal.atualizarInterface(jogo.getEstado());
     	}
     }
+				
 
     	
     		

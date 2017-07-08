@@ -8,14 +8,26 @@ public class Mesa implements Jogada {
 	protected int pontosAGanhar;
 	protected int pontosGanhos;
 	protected int acertosRodada;
+	protected int pontosConsecutivos;
 	
 	
+
+
 	public Mesa(){
 		this.pontosAGanhar = 5;
 		this.pontosGanhos = 0;
 		this.acertosRodada = 0;
+		this.pontosConsecutivos = 0;
 	}
 	
+	public int getPontosConsecutivos() {
+		return pontosConsecutivos;
+	}
+	
+	
+	public void setPontosConsecutivos(int pontosConsecutivos) {
+		this.pontosConsecutivos = pontosConsecutivos;
+	}
 	
 	public int getPontosAGanhar() {
 		return pontosAGanhar;
@@ -44,6 +56,14 @@ public class Mesa implements Jogada {
 	
 	public void zerarAcertosRodada(){
 		this.acertosRodada = 0;
-	}	
+	}
+	
+	public void zerarPontosConsecutivos(){
+		this.pontosConsecutivos = 0;
+	}
+	
+	public void incrementarPontosConsecutivos(){
+		this.pontosConsecutivos = this.pontosConsecutivos + 1;
+	}
 	
 }
